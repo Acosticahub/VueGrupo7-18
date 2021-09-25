@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <div class="d-flex align-center">
+    <v-app-bar app class="max-height">
+      <div class="d-flex align-center m-12">
         <v-img
           contain
           lazy-src="..\src\assets\Logo Kibhu Para fondo claro -02.png"
-          max-height="200"
-          max-width="130"
+          max-height="250"
+          max-width="150"
           src="..\src\assets\Logo Kibhu Para fondo claro -02.png"
         ></v-img>
       </div>
