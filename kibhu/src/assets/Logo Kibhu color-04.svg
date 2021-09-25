@@ -3,14 +3,14 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1080 1080" style="enable-background:new 0 0 1080 1080;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FFFFFF;}
-	.st1{fill:#FFFFFF;stroke:#231F20;stroke-width:8;stroke-miterlimit:10;}
-	.st2{fill:#FFFFFF;stroke:#231F20;stroke-width:10;stroke-miterlimit:10;}
+	.st0{fill:#231F20;}
+	.st1{fill:#606161;}
+	.st2{fill:#DAA528;}
 </style>
 <g>
-	<polygon class="st2" points="178.91,85.77 178.91,852.94 356.27,591.56 356.27,85.77 	"/>
-	<polygon class="st2" points="262.7,994.23 356.27,994.23 356.27,856.34 	"/>
-	<polygon class="st2" points="588.8,513.68 487.49,662.95 694.39,994.23 901.09,994.23 	"/>
+	<polygon class="st0" points="178.91,85.77 178.91,852.94 356.27,591.56 356.27,85.77 	"/>
+	<polygon class="st0" points="262.7,994.23 356.27,994.23 356.27,856.34 	"/>
+	<polygon class="st1" points="588.8,513.68 487.49,662.95 694.39,994.23 901.09,994.23 	"/>
 	<polygon class="st2" points="820.94,170.15 821.6,170.6 588.8,513.68 487.49,662.95 356.27,856.34 262.7,994.23 178.91,994.23 
 		178.91,852.94 356.27,591.56 698.57,87.12 699.49,85.77 878.12,85.77 	"/>
 </g>
