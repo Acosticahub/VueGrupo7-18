@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app class="max-height">
+    <v-app-bar app flat class="max-height">
       <div class="d-flex align-center m-12">
         <v-img
           contain
