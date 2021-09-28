@@ -5,6 +5,9 @@
 <servicios />
 <sobre-nosotros />
 <noticias />
+<v-footer app>
+    <div class="footer"> MinTic2022 Grupo7-18, &copy;Kibhu 2021 </div>
+</v-footer>
 </v-main>
 </template>
 
@@ -28,3 +31,10 @@ import SobreNosotros from '../components/SobreNosotros.vue';
     },
   }
 </script>
+
+<style scoped>
+.footer{
+  text-align: center;
+  margin: 5px;
+}
+</style>
