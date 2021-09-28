@@ -1,15 +1,32 @@
 <template>
-  <hello-world />
+<v-main>
+<header-home />
+<login-home />
+<servicios />
+<sobre-nosotros />
+<noticias />
+</v-main>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import HeaderHome from '../components/HeaderHome.vue';
+import LoginHome from '../components/LoginHome.vue';
+import Noticias from '../components/Noticias.vue';
+/*import Quienes from '../components/Quienes.vue';*/
+import Servicios from '../components/Servicios.vue';
+import SobreNosotros from '../components/SobreNosotros.vue';
+
+   
 
   export default {
     name: 'Home',
-
+    
     components: {
-      HelloWorld,
+        HeaderHome,
+        LoginHome,
+        Servicios,
+        SobreNosotros,
+        Noticias,
     },
   }
 </script>
