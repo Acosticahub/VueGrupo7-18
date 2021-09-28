@@ -15,9 +15,7 @@ import Noticias from '../components/Noticias.vue';
 /*import Quienes from '../components/Quienes.vue';*/
 import Servicios from '../components/Servicios.vue';
 import SobreNosotros from '../components/SobreNosotros.vue';
-
    
-
   export default {
     name: 'Home',
     
