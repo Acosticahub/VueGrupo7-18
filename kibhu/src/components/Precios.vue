@@ -63,8 +63,3 @@ export default {
 }
 </script>
 
-<style>
- *{
-    padding: 10px;
-}
-</style>
