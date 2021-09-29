@@ -11,7 +11,7 @@
       información un poco más detallada sobre los integrantes del Scrum Team.
     </p>
     <br />
-    <v-carousel height="663px" :show-arrows="false">
+    <v-carousel height="670px" :show-arrows="false">
       <v-carousel-item>
         <v-row>
           <v-card class="mx-auto cards" max-width="344">
@@ -49,7 +49,7 @@
                 Cursando Tecnología en Sistemas y adquiriendo conocimientos en
                 programación con Mintic2022.
               </div>
-              <br />
+              <br /><br />
 
               <div>dosman.diazjhon4166@gmail.com</div>
             </v-card-text>

@@ -1,8 +1,7 @@
 <template>
   <div class="bloque">
     <h1>Noticias</h1>
-    
-    
+
     <br />
     <v-carousel height="663px" :show-arrows="false">
       <v-carousel-item>
@@ -12,21 +11,20 @@
 
             <v-card-title>Kibhu en actualizacion</v-card-title>
 
-            <v-card-subtitle>mantenemos mejorando nuestros servicios</v-card-subtitle>
+            <v-card-subtitle
+              >Continua mejora de nuestros servicios</v-card-subtitle
+            >
 
             <v-card-text class="text--primary">
               <div>
-                mantenemos en constante actualizacion, para mejorar y perfeccionar nuestros servicios.
+                Mantenemos en constante actualizacion, para mejorar y
+                perfeccionar nuestros servicios.
               </div>
               <br />
-
-              
             </v-card-text>
 
             <v-card-actions>
-              <div class="btn">
-                
-              </div>
+              <div class="btn"></div>
             </v-card-actions>
           </v-card>
           <v-card class="mx-auto cards" max-width="344">
@@ -34,21 +32,20 @@
 
             <v-card-title>Kibhu ahora en moviles</v-card-title>
 
-            <v-card-subtitle>Mantenga su inventario al alcance de su mano</v-card-subtitle>
+            <v-card-subtitle
+              >Tu inventario al alcance de tu mano</v-card-subtitle
+            >
 
             <v-card-text class="text--primary">
               <div>
-                ahora mantenga su inventario actualizado desde la movilidad y comodidad de su telefono movil 
+                Ahora puedes gestionar tu inventario actualizado desde la
+                movilidad y comodidad de su telefono movil
               </div>
               <br />
-
-              
             </v-card-text>
 
             <v-card-actions>
-              <div class="btn">
-                
-              </div>
+              <div class="btn"></div>
             </v-card-actions>
           </v-card>
           <v-card class="mx-auto cards" max-width="344">
@@ -56,27 +53,22 @@
 
             <v-card-title>Kibhu</v-card-title>
 
-            <v-card-subtitle>registrate ahora a Kibhu</v-card-subtitle>
+            <v-card-subtitle>Registrate ahora a Kibhu</v-card-subtitle>
 
             <v-card-text class="text--primary">
               <div>
-                Te invitamos a conocer nuestro inventario en linea, de una manera, facil rapida y confiable.
+                Te invitamos a conocer nuestro inventario en linea, de una
+                manera fácil, rápida y confiable.
               </div>
               <br />
-
-              
             </v-card-text>
 
             <v-card-actions>
-              <div class="btn">
-                
-              </div>
+              <div class="btn"></div>
             </v-card-actions>
           </v-card>
         </v-row>
       </v-carousel-item>
-
-      
     </v-carousel>
   </div>
 </template>
