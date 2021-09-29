@@ -19,7 +19,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "~@/assets/scss/vendors/bootstrap-vue/index";
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 *{
