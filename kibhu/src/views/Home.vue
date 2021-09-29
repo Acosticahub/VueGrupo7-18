@@ -28,7 +28,7 @@ import SobreNosotros from '../components/SobreNosotros.vue';
         HeaderHome,
         LoginHome,
         Servicios,
-        Precios
+        Precios,
         SobreNosotros,
         Noticias,
     },
