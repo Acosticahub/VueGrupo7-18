@@ -17,7 +17,8 @@
         value="recordar"
         hide-details
       ></v-checkbox>
-      <input type="submit" value="Login" class="button" />
+      
+      <router-link to="/appkibhu" type="submit" value="Login" class="button" >Login</router-link>
       <div>
         <a href="">Olvide mi Contraseña|</a>
         <a href="">No tengo cuenta</a>

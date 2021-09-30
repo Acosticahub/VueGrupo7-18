@@ -10,7 +10,7 @@
     src="../../assets/Logo Kibhu Para fondo claro -02.png"
 ></v-img>
 <v-spacer></v-spacer>
- 
+
 <v-menu offset-y>
     <template v-slot:activator="{ on }">
         <v-btn text v-on="on" color="grey" class="text--darken-2">
@@ -29,7 +29,7 @@
         </v-list>
     </v-menu>
 
-<v-btn flat >
+<v-btn flat link href="../../" >
     <span>Sign Out</span>
     <v-icon rigth>mdi-logout</v-icon>
 </v-btn>
@@ -86,7 +86,7 @@ export default {
             menu:[
                 {icon: 'mdi-account-tie', text: 'Inicio', route:'./'},
                 {icon:'mdi-view-dashboard', text: 'Productos', route: './Productos'},
-                {icon: 'mdi-folder-settings', text: 'Clientes', route: './Clientes'},
+                {icon: 'mdi-folder-settings', text: 'Clientes', route: './clientes'},
                 {icon: 'mdi-account-tie', text: 'Proveedores', route:'./Proveedores'},
                 {icon: 'mdi-account-tie', text: 'Usuarios', route:'./Usuarios'},
             ],
