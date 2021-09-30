@@ -92,7 +92,7 @@ export default {
             ],
             items:[
                 {icon: 'mdi-account-tie', text: 'Inicio', route:'./'},
-                {icon:'mdi-view-dashboard', text: 'Productos', route: './Productos'},
+                {icon:'mdi-view-dashboard', text: 'Productoss', route: './Productos'},
                 {icon: 'mdi-folder-settings', text: 'Clientes', route: './Clientes'},
                 {icon: 'mdi-account-tie', text: 'Proveedores', route:'./Proveedores'},
                 {icon: 'mdi-account-tie', text: 'Usuarios', route:'./Usuarios'},
