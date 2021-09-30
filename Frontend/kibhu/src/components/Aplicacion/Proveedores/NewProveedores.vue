@@ -145,6 +145,7 @@ methods: {
     this.email = "";
     localStorage.idSupplier = id;
     localStorage.suppliers = JSON.stringify(proveedores);
+     location.href = "/Proveedores"
     },
 },
 };
