@@ -1,6 +1,7 @@
 <template>
   <div class="bloque">
-    <h1>Sobre Nosotros</h1>
+    <br>
+    <center><h1><b>Sobre Nosotros</b></h1></center>
     <br />
     <p>
       Somos un Equipo de Desarrollo estructurado con las bases de la Metodología
@@ -136,7 +137,7 @@
           </v-card>
         </v-row>
       </v-carousel-item>
-    </v-carousel>
+    </v-carousel><br><hr>
   </div>
 </template>
 

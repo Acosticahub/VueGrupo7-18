@@ -1,7 +1,7 @@
 <template>
   <div class="presentation bloque">
     <div class="title">
-      <h2><b>¿Qué hacemos?</b></h2>
+      <h1><b>¿Qué puedes hacer con Kibhu?</b></h1>
     </div>
     <br /><br />
     <div class="subtitle">
@@ -32,7 +32,7 @@
         más demandados, dificiles de conseguir, y mucha más información para que
         tomes la mejor decisión
       </div><br />
-    </div>
+    </div><br><hr>
   </div>
 </template>
 

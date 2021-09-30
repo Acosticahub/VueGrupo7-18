@@ -1,9 +1,9 @@
 <template>
   <div class="bloque">
-    <br /><br />
-    <h1>Noticias</h1>
     <br />
-    <v-carousel height="663px" :show-arrows="false">
+    <center><h1><b>Noticias sobre Kibhu</b></h1></center>
+    <br />
+    <v-carousel hide-delimiters height="600px" :show-arrows="false">
       <v-carousel-item>
         <v-row>
           <v-card class="mx-auto cards" max-width="344">
@@ -69,7 +69,7 @@
           </v-card>
         </v-row>
       </v-carousel-item>
-    </v-carousel>
+    </v-carousel><hr>
   </div>
 </template>
 
