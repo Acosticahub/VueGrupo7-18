@@ -1,10 +1,10 @@
 <template>
   <div class="pricing text-center bloque">
-    <br /><br />
-    <h1>Precios</h1>
+    <br />
+    <h1><b>Precios</b></h1><br>
     <p>
       Mira nuestras tarifas y escoge la que mejor se ajuste a tu plan de
-      negocios
+      negocios.
     </p>
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
@@ -91,7 +91,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div><hr>
   </div>
 </template>
 
