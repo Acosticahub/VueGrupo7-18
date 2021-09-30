@@ -92,8 +92,8 @@ const routes = [
   component: () => import(/* webpackChunkName: "about" */ '../components/Aplicacion/Proveedores/Proveedores.vue')
 },
 {
-  path: '/newusuario',
-  name: 'NewUsuario',
+  path: '/newproveedores',
+  name: 'NewProveedores',
   // route level code-splitting
   // this generates a separate chunk (about.[hash].js) for this route
   // which is lazy-loaded when the route is visited.

@@ -7,7 +7,7 @@
         large
         color="#dAA520"
         elevation="2" 
-        bottom right fixed fab to="/NewProveedor">
+        bottom right fixed fab to="/NewProveedores">
             <v-icon dark>mdi-account-plus</v-icon>
         </v-btn>
         <v-text-field label="Buscar">

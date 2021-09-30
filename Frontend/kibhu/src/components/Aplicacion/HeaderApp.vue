@@ -11,9 +11,9 @@
 ></v-img>
 <v-spacer></v-spacer>
 
-    <div class="text-center">
+<div class="text-center">
     <v-menu offset-y>
-      <template v-slot:activator="{ on, attrs }">
+        <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="grey"
           class="text--darken-2"
@@ -34,6 +34,7 @@
       </v-list>
     </v-menu>
   </div>
+
 
 <v-btn flat link href="../../" >
     <span>Sign Out</span>
@@ -92,10 +93,11 @@ export default {
             items:[
                 {icon: 'mdi-account-tie', text: 'Inicio', route:'./'},
                 {icon:'mdi-view-dashboard', text: 'Productos', route: './Productos'},
-                {icon: 'mdi-folder-settings', text: 'Clientes', route: './clientes'},
+                {icon: 'mdi-folder-settings', text: 'Clientes', route: './Clientes'},
                 {icon: 'mdi-account-tie', text: 'Proveedores', route:'./Proveedores'},
                 {icon: 'mdi-account-tie', text: 'Usuarios', route:'./Usuarios'},
             ],
+            
             
         }
         }
