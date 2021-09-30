@@ -1,6 +1,7 @@
 <template>
   <div class="presentation bloque">
     <div class="title">
+      <br /><br />
       <h1><b>¿Qué puedes hacer con Kibhu?</b></h1>
     </div>
     <br /><br />
