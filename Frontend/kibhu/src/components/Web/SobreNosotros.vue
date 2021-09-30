@@ -146,7 +146,7 @@ export default {};
 
 <style>
 .bloque {
-  margin: 100px;
+  margin: auto 100px auto;
 }
 p {
   color: #4b4b4b;
