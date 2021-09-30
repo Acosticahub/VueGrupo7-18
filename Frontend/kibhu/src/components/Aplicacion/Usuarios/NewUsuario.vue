@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
 <div>
     <h1>Nuevo Usuario</h1>
     <v-container class="container">
@@ -76,6 +78,7 @@
     </v-btn>
     </div>
 </div>
+</v-main>
 </template>
 
 <script>

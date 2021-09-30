@@ -1,4 +1,6 @@
-[12:34 AM, 9/30/2021] +57 318 3913217: <template>
+<template>
+<v-main>
+  <header-app />
     <div>
         <h1>Proveedores de KIBHU</h1>
         <v-btn 
@@ -38,6 +40,7 @@
             </v-row>
         </v-container>
     </div>
+</v-main>
 </template>
 
 <script>

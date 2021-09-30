@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
   <div>
     <v-card class="mx-auto" max-width="344" outlined shaped>
       <v-card-text>
@@ -38,6 +40,7 @@
       </v-expand-transition>
     </v-card>
   </div>
+</v-main>
 </template>
 
 <script>

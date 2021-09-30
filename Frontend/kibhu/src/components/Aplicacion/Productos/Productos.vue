@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
   <div>
     <center><h1>Lista de Productos</h1></center>
     <v-btn
@@ -36,6 +38,7 @@
       </v-row>
     </v-container>
   </div>
+</v-main >
 </template>
 
 <script>

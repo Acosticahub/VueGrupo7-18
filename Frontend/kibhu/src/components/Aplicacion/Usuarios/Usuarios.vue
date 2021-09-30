@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
 <div>
         <h1>Usuarios de KIBHU</h1>
         <v-btn 
@@ -38,6 +40,7 @@
             </v-row>
         </v-container>
     </div>
+</v-main>
 </template>
 <script>
 import CatalogUsuarios from '../../Aplicacion/Usuarios/CatalogUsuarios.vue';
