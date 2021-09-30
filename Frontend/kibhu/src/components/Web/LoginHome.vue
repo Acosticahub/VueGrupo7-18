@@ -1,9 +1,5 @@
     <template>
-  <div>
-    <img
-      src="../../assets/FondoLogin.jpg"
-      alt="50px"
-    />
+  <div class="login">
     <div class="contenedor">
       <span>Nombre de usuario</span>
       <input type="text" placeholder="Enter your Username" />
@@ -34,7 +30,10 @@
   width: 500px;
   position: relative;
   right: -1000px;
-  padding: 10px;
+  padding: 60px;
+  border-radius: 25px;
+  background-color:rgba(255, 255, 255, 0.8);
+
 }
 
 input {
@@ -85,4 +84,11 @@ p {
     border-radius: 2%;
   }
 }
+.login{
+  background-image: url("../../assets/FondoLogin.jpg");
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
 </style>

@@ -40,4 +40,7 @@ import SobreNosotros from '../components/Web/SobreNosotros.vue';
   text-align: center;
   margin: 5px;
 }
+.v-main{
+  padding:  0 !important;
+}
 </style>
