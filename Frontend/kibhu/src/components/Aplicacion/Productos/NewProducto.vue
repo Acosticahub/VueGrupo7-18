@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
   <div>
     <center><h1>Agregar un Nuevo Producto</h1></center><br>
     <v-container class="container">
@@ -101,10 +103,13 @@
       </v-btn>
     </div>
   </div>
+  </v-main>
 </template>
 
 <script>
+import HeaderApp from '../HeaderApp.vue';
 export default {
+  components: { HeaderApp },
   data() {
     return {
       name: "",

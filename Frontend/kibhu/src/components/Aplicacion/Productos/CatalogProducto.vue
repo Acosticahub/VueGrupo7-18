@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
   <div>
       <v-card class="mx-auto cards" max-width="344">
         <v-img height="200px" :src="product.img"></v-img>
@@ -17,6 +19,7 @@
         </v-card-actions>
       </v-card>
   </div>
+  </v-main>
 </template>
 
 <script>
