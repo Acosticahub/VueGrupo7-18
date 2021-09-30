@@ -148,6 +148,7 @@ methods: {
     this.email = "";
     localStorage.idUser = id;
     localStorage.users = JSON.stringify(usuarios);
+     location.href = "/usuarios"
     },
 },
 };

@@ -11,7 +11,7 @@
 ></v-img>
 <v-spacer></v-spacer>
 
-    <div class="text-center">
+   <!-- <div class="text-center">
     <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
@@ -33,7 +33,19 @@
         </v-list-item>
       </v-list>
     </v-menu>
+  </div>-->
+
+  <div class="dropdown">
+  
+  <button class="dropbtn">Menu <v-icon left>mdi-chevron-down</v-icon> </button>
+  <div class="dropdown-content">
+  <a style="black" href="/Appkibhu">Inicio</a>
+  <a href="/productos">Productos</a>
+  <a href="/usuarios">Usuarios</a>
+  <a href="/Clientes">Clientes</a>
+  <a href="/Proveedores">Proveedores</a>
   </div>
+</div>
 
 
 <v-btn flat link href="../../" >
@@ -107,5 +119,44 @@ export default {
 
 <style>
 
+.dropbtn {
+  background-color: #a0a0a0;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ffffff;
+}
 
 </style>

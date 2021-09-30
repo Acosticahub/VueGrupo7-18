@@ -167,6 +167,7 @@ methods: {
     this.tipodeID = "";
     localStorage.idClient = id;
     localStorage.clients = JSON.stringify(clientes);
+     location.href = "/clientes"
     },
 },
 };
