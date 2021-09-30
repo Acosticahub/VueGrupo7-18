@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
   <div>
     <v-card
     class="mx-auto"
@@ -53,6 +55,7 @@
     </v-expand-transition>
   </v-card>
   </div>
+</v-main>
 </template>
 
 <script>
