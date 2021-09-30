@@ -1,7 +1,7 @@
 <template>
   <div class="bloque">
+    <br /><br />
     <h1>Noticias</h1>
-
     <br />
     <v-carousel height="663px" :show-arrows="false">
       <v-carousel-item>
@@ -78,9 +78,6 @@ export default {};
 </script>
 
 <style>
-.bloque {
-  margin: 100px;
-}
 p {
   color: #4b4b4b;
 }
