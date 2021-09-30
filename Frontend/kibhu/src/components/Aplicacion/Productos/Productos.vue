@@ -2,7 +2,7 @@
 <v-main>
   <header-app />
   <div>
-    <center><h1>Lista de Productos</h1></center>
+    <h1>Lista de Productos</h1>
     <v-btn
       class="mx-2"
       dark
