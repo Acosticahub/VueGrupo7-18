@@ -59,7 +59,9 @@
 </template>
 
 <script>
+import HeaderApp from '../HeaderApp.vue';
 export default {
+  components: { HeaderApp },
   props: ["client", "active"],
   data: () => ({
       reveal: false,

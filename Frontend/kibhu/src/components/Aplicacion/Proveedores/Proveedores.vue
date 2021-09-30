@@ -45,9 +45,11 @@
 
 <script>
 import CatalogProveedores from '../../Aplicacion/Proveedores/CatalogProveedores.vue';
+import HeaderApp from '../HeaderApp.vue';
 export default {
 components: {
-    CatalogProveedores
+    CatalogProveedores,
+    HeaderApp,
 },
 data() {
     return {

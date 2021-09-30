@@ -43,9 +43,11 @@
 
 <script>
 import CatalogProducto from "../../Aplicacion/Productos/CatalogProducto.vue";
+import HeaderApp from '../HeaderApp.vue';
 export default {
   components: {
     CatalogProducto,
+    HeaderApp,
   },
   data() {
     return {

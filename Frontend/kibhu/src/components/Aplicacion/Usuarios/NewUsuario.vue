@@ -82,7 +82,9 @@
 </template>
 
 <script>
+import HeaderApp from '../HeaderApp.vue';
 export default {
+    components: { HeaderApp },
 data() {
     return {
     name: "",

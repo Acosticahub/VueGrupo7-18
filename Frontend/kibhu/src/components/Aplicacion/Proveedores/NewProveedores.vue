@@ -1,4 +1,6 @@
 <template>
+<v-main>
+  <header-app />
 <div>
     <h1>Nuevo Proveedor</h1>
     <v-container class="container">
@@ -76,10 +78,13 @@
     </v-btn>
     </div>
 </div>
+</v-main>
 </template>
 
 <script>
+import HeaderApp from '../HeaderApp.vue';
 export default {
+    components: { HeaderApp },
 data() {
     return {
     name: "",

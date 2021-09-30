@@ -43,10 +43,12 @@
 </v-main>
 </template>
 <script>
+import HeaderApp from '../HeaderApp.vue';
 import CatalogUsuarios from '../../Aplicacion/Usuarios/CatalogUsuarios.vue';
 export default {
 components: {
-    CatalogUsuarios
+    CatalogUsuarios,
+    HeaderApp,
 },
 data() {
     return {

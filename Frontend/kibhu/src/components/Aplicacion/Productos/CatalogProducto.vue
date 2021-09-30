@@ -23,7 +23,10 @@
 </template>
 
 <script>
+import HeaderApp from '../HeaderApp.vue';
+
 export default {
+  components: { HeaderApp },
   props: ["product", "active"],
   data: () => ({
     reveal: false,

@@ -45,9 +45,11 @@
 
 <script>
 import CatalogCliente from '../../Aplicacion/Clientes/CatalogCliente.vue';
+import HeaderApp from '../HeaderApp.vue';
 export default {
 components: {
-    CatalogCliente
+    CatalogCliente,
+    HeaderApp,
 },
 data() {
     return {

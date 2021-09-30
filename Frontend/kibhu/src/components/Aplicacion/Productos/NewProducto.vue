@@ -2,7 +2,7 @@
 <v-main>
   <header-app />
   <div>
-    <center><h1>Agregar un Nuevo Producto</h1></center><br>
+    <h1>Agregar un Nuevo Producto</h1><br>
     <v-container class="container">
       <v-row>
         <v-col cols="12" sm="6">
