@@ -15,7 +15,7 @@
       <v-carousel-item>
         <v-row>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/Acosta.jpg"></v-img>
+            <v-img height="320px" src="../../assets/Acosta.jpg"></v-img>
 
             <v-card-title>Andrés David Acosta</v-card-title>
 
@@ -38,7 +38,7 @@
             </v-card-actions>
           </v-card>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/Dosman.jpg"></v-img>
+            <v-img height="320px" src="../../assets/Dosman.jpg"></v-img>
 
             <v-card-title>Jhon Dosman</v-card-title>
 
@@ -61,7 +61,7 @@
             </v-card-actions>
           </v-card>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/Altamirano.jpeg"></v-img>
+            <v-img height="320px" src="../../assets/Altamirano.jpeg"></v-img>
 
             <v-card-title>Juan Pablo Altamirano</v-card-title>
 
@@ -89,7 +89,7 @@
       <v-carousel-item>
         <v-row>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/Daniel.jpg"></v-img>
+            <v-img height="320px" src="../../assets/Daniel.jpg"></v-img>
 
             <v-card-title>Daniel Arias</v-card-title>
 
@@ -112,7 +112,7 @@
             </v-card-actions>
           </v-card>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/Bastidas.jpg"></v-img>
+            <v-img height="320px" src="../../assets/Bastidas.jpg"></v-img>
 
             <v-card-title>Juan Camilo Bastidas</v-card-title>
 

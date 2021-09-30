@@ -7,7 +7,7 @@
       <v-carousel-item>
         <v-row>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/programacion.jpg"></v-img>
+            <v-img height="320px" src="../../assets/programacion.jpg"></v-img>
 
             <v-card-title>Kibhu en actualizacion</v-card-title>
 
@@ -28,7 +28,7 @@
             </v-card-actions>
           </v-card>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/imgproductiva.jpg"></v-img>
+            <v-img height="320px" src="../../assets/imgproductiva.jpg"></v-img>
 
             <v-card-title>Kibhu ahora en moviles</v-card-title>
 
@@ -49,7 +49,7 @@
             </v-card-actions>
           </v-card>
           <v-card class="mx-auto cards" max-width="344">
-            <v-img height="320px" src="../assets/invf.jpeg"></v-img>
+            <v-img height="320px" src="../../assets/invf.jpeg"></v-img>
 
             <v-card-title>Kibhu</v-card-title>
 

@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import HeaderHome from '../components/HeaderHome.vue';
-import LoginHome from '../components/LoginHome.vue';
-import Noticias from '../components/Noticias.vue';
-import Servicios from '../components/Servicios.vue';
-import Precios from '../components/Precios.vue';
-import SobreNosotros from '../components/SobreNosotros.vue';
+import HeaderHome from '../components/Web/HeaderHome.vue';
+import LoginHome from '../components/Web/LoginHome.vue';
+import Noticias from '../components/Web/Noticias.vue';
+import Servicios from '../components/Web/Servicios.vue';
+import Precios from '../components/Web/Precios.vue';
+import SobreNosotros from '../components/Web/SobreNosotros.vue';
 
 
   export default {

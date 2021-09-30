@@ -5,10 +5,10 @@
         <div class="d-flex align-center ma-12">
             <v-img
             contain
-            lazy-src="../assets/Logo Kibhu blanco-02.svg"
+            lazy-src="../../assets/Logo Kibhu blanco-02.svg"
             max-height="200"
             max-width="130"
-            src="../assets/Logo Kibhu Para fondo claro -02.png"
+            src="../../assets/Logo Kibhu Para fondo claro -02.png"
             ></v-img>
         </div>
         <v-spacer></v-spacer>
