@@ -11,23 +11,29 @@
 ></v-img>
 <v-spacer></v-spacer>
 
-<v-menu offset-y>
-    <template v-slot:activator="{ on }">
-        <v-btn text v-on="on" color="grey" class="text--darken-2">
-            <v-icon left>mdi-chevron-down</v-icon>
-            <span>Menu</span>
+    <div class="text-center">
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="grey"
+          class="text--darken-2"
+          depressed
+          v-bind="attrs"
+          v-on="on"
+        ><v-icon left>mdi-chevron-down</v-icon>
+          Menu
         </v-btn>
-    </template>
-        <v-list>
-            <v-list-item
-                v-for="(link,idx) in menu"
-                :key="idx"
-                :to="link.route"
-            >
-            <v-list-item-title>{{ link.text }}</v-list-item-title>
-            </v-list-item>
-        </v-list>
+      </template>
+      <v-list>
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <v-list-item-title>{{ item.text }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
     </v-menu>
+  </div>
 
 <v-btn flat link href="../../" >
     <span>Sign Out</span>
@@ -83,7 +89,7 @@ export default {
                 { icon: 'mdi-folder-settings', text: 'Recursos', route: './Proyects'},
                 {icon: 'mdi-account-tie', text: 'Equipo', route:'./Usuarios'},
             ],
-            menu:[
+            items:[
                 {icon: 'mdi-account-tie', text: 'Inicio', route:'./'},
                 {icon:'mdi-view-dashboard', text: 'Productos', route: './Productos'},
                 {icon: 'mdi-folder-settings', text: 'Clientes', route: './clientes'},
