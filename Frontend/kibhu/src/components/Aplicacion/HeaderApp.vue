@@ -11,9 +11,9 @@
 ></v-img>
 <v-spacer></v-spacer>
 
-<div class="text-center">
+    <div class="text-center">
     <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
+      <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="grey"
           class="text--darken-2"
