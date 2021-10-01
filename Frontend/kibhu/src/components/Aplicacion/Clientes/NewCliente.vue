@@ -1,6 +1,6 @@
 <template>
 <v-main>
-  <header-app />
+    <header-app />
 <div>
     <h1>Nuevo Cliente</h1>
     <v-container class="container">
