@@ -16,7 +16,7 @@
       
       <router-link to="/appkibhu" type="submit" value="Login" class="button" >Login</router-link>
       <div>
-        <a href="">Olvide mi Contraseña|</a>
+        <a href="">Olvide mi Contraseña | </a>
         <a href="">No tengo cuenta</a>
       </div>
     </div>
@@ -63,7 +63,7 @@ input {
   cursor: pointer;
 }
 .button:hover {
-  background: #000;
+  background: gray
 }
 p {
   text-align: center;
@@ -74,7 +74,7 @@ p {
   font-weight: 600;
 }
 .link:hover {
-  color: #000;
+  color: gray;
 }
 @media (min-width: 768px) {
   .formulario {
