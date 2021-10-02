@@ -1,5 +1,5 @@
 <template>
-  <div class="pricing text-center bloque">
+  <div class="pricing text-center bloque" id="Precios">
     <br />
     <h1><b>Precios</b></h1><br>
     <p>

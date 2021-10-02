@@ -15,28 +15,29 @@
 
         <div>
             <v-btn
-            href="#"
+            href="#LoginWeb"
+            depressed
+            text
+            class="text-decoration-none black--text ma-12"
+            >Inicio</v-btn
+            >
+            <v-btn
+            href="#Precios"
             depressed
             text
             class="text-decoration-none black--text ma-12 depressed"
             >Servicios</v-btn
             >
+            
             <v-btn
-            href="#"
-            depressed
-            text
-            class="text-decoration-none black--text ma-12"
-            >Quienes somos</v-btn
-            >
-            <v-btn
-            href="#"
+            href="#SobreNosotros"
             depressed
             text
             class="text-decoration-none black--text ma-12"
             >Sobre Nosotros</v-btn
             >
             <v-btn
-            href="#"
+            href="#Noticias"
             depressed
             text
             class="text-decoration-none black--text ma-12"

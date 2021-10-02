@@ -1,5 +1,5 @@
 <template>
-  <div class="bloque">
+  <div class="bloque" id="Noticias">
     <br />
     <center><h1><b>Noticias sobre Kibhu</b></h1></center>
     <br />

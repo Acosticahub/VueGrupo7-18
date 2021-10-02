@@ -1,5 +1,5 @@
     <template>
-  <div class="login">
+  <div class="login" id="LoginWeb">
     <div class="contenedor">
       <span>Nombre de usuario</span>
       <input type="text" placeholder="Enter your Username" />
@@ -15,7 +15,7 @@
       ></v-checkbox>
       
       <router-link to="/appkibhu" type="submit" value="Login" class="button" >Login</router-link>
-      <div>
+      <div class="config cuenta">
         <a href="">Olvide mi Contraseña | </a>
         <a href="">No tengo cuenta</a>
       </div>
@@ -26,6 +26,7 @@
 </script>
 
 <style>
+
 .contenedor {
   width: 500px;
   position: relative;

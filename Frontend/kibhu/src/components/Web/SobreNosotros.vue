@@ -1,5 +1,5 @@
 <template>
-  <div class="bloque">
+  <div class="bloque" id="SobreNosotros">
     <br>
     <center><h1><b>Sobre Nosotros</b></h1></center>
     <br />
