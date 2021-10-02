@@ -32,8 +32,8 @@
               <div>acostabuitrago0123@gmail.com</div>
             </v-card-text>
 
-            <v-card-actions>
-              <div class="btn">
+            <v-card-actions link>
+              <div class="btn" href="mailto:acostabuitrago0123@gmail.com">
                 <button>Contacto</button>
               </div>
             </v-card-actions>
