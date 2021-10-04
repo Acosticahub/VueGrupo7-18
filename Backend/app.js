@@ -13,9 +13,7 @@ app.use(express.urlencoded({extended: true}))
 
 
 //definir rutas
-app.get("/",(req,res)  => {
-    res.status(200).json("{  'message': 'Hola mundo'}")
-} )
+app.use("/api", require("./routes/routes"));
 
 //iniciar servidor
 const port = process.env.PORT;
