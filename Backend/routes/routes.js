@@ -4,15 +4,24 @@ const router = express.Router();
 //client Routes
 router.get("/clients", (req, res) => {
     const mensaje = [
-        {code: 1000, name: "daniel", identificación: "12345", tipodeid: "CC", correo: "daniel@gmail.com"},
-        {code: 1001, name: "alejandro", identificación: "54321", tipodeid: "CC", correo: "alejandro@gmail.com"}
+        {code: 1000, name: "daniel", identification: "12345", typeid: "CC", mail: "daniel@gmail.com", contact: "3212321"},
+        {code: 1001, name: "alejandro", identification: "54321", typeid: "CC", mail: "alejandro@gmail.com", contact: "1231231"}
     ];
     res.status(200).json(mensaje)
 }  )
 
 router.get("/clients/:code", (req, res) => {
-    const mensaje = {code: 1000, name: "daniel", identificación: "12345", tipodeid: "CC", correo: "daniel@gmail.com"}
+    const code = req.params.code;
+    const mensaje = {code: code, name: "daniel", identification: "12345", typeid: "CC", mail: "daniel@gmail.com", contact: "3212321"}
     res.status(200).json(mensaje);
 }  );
+
+router.post("/clients",  (req, res) => {
+    const client = req.body;
+    res.status(201).json(client);
+} )
+
+
+// Fin Clients route
 
 module.exports = router;

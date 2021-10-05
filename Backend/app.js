@@ -11,6 +11,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
+//Conectandonos a MongoDB
+const mongoose = require("mongoose");
+mongoose.connect(process.env.DB_URI)
+.then(  ()  => console.log("Conected to database")  )
+.catch( (err)=> console.error(err)  );
+
 
 //definir rutas
 app.use("/api", require("./routes/routes"));
