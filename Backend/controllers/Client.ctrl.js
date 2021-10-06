@@ -4,13 +4,8 @@ module.exports = class ClientApi {
     static async getAll(req, res) {
         try {
             const clients = await clientModel.find();
-            if (clients == null) {
-                res.status(404).json({message: "Not found"});
-            } else {
-                res.status(200).json(clients);
-            } 
-            
-        } catch (err){
+            res.status(200).json(clients); 
+        } catch (err) {
             res.status(404).json({ message: err.message});
         }
     }
@@ -32,7 +27,7 @@ module.exports = class ClientApi {
             let client = req.body;
             client = await clientModel.create(client);
             res.status(201).json(client);
-        } catch (error) {
+        } catch (err){
             res.status(400).json({message: err.message})
         }
     }
