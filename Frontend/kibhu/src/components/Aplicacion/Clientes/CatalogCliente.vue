@@ -9,7 +9,7 @@
     shaped
   >
     <v-card-text>
-      <div>Cliente # {{client.id}} </div>
+      <div>Cliente  {{client.name}} </div>
       <p class="text-h4 text--primary">
         {{client.name}}
       </p>

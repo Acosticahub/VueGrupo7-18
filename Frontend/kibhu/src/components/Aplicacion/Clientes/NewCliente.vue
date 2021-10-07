@@ -30,7 +30,7 @@
                     filled
                     label="Tipo de Identificación"
                     dense
-                    v-model="tipodeID"
+                    v-model="typeid"
                     >
                     <v-icon slot="prepend" color="#dAA520"> mdi-smart-card </v-icon>
                 </v-select>
@@ -45,7 +45,7 @@
                 <v-text-field
                     label="Identificación del cliente"
                     hide-details="auto"
-                    v-model="cedula"
+                    v-model="identification"
                     type= "number"
                     outlined
                     shaped
@@ -62,7 +62,7 @@
                     label="Número de contacto"
                     type = "number"
                     hide-details="auto"
-                    v-model="contacto"
+                    v-model="contact"
                     :rules="numberRules"
                     outlined
                     shaped
@@ -76,7 +76,7 @@
             sm="6"
             >
                 <v-text-field
-                    v-model="email"
+                    v-model="mail"
                     :rules="mailRules"
                     hide-details="auto"
                     label="Correo de contacto"
@@ -105,11 +105,11 @@ export default {
 data() {
     return {
     name: "",
-    cedula: "",
-    contacto: "",
-    email: "",
-    tipodeID: "",
-    items: ['CC', 'T.I', 'Pasaporte', 'Cédula Extranjería'],
+    identification: "",
+    contact: "",
+    mail: "",
+    typeid: "",
+    items: ['CC', 'TI', 'Pasaporte', 'NIP'],
     nameRules: [
         (value) => !!value || "Required.",
         (value) => (value && value.length >= 3) || "Min 3 characters",
@@ -150,10 +150,10 @@ methods: {
     const cliente = {
         id: id,
         name: this.name,
-        cedula: this.cedula,
-        contacto: this.contacto,
-        email: this.email,
-        tipodeID: this.tipodeID
+        identification: this.identification,
+        contact: this.contact,
+        mail: this.mail,
+        typeid: this.typeid
 
     };
     let clientes = localStorage.clients;
@@ -166,13 +166,13 @@ methods: {
     clientes.push(cliente);
     alert("Bienvenido a la familia KIBHU");
     this.name = "";
-    this.cedula = "";
-    this.contacto = "";
-    this.email = "";
-    this.tipodeID = "";
+    this.identification = "";
+    this.contact = "";
+    this.mail = "";
+    this.typeid = "";
     localStorage.idClient = id;
     localStorage.clients = JSON.stringify(clientes);
-     location.href = "/clientes"
+    location.href = "/clientes"
     },
 },
 };
