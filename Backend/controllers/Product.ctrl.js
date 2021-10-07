@@ -14,7 +14,7 @@ module.exports = class ProductApi {
       const reference = req.params.reference;
       const product = await productModel.findOne({ Referencia: reference });
       if (product == null) {
-        res.status(404).json({ message: "Not Found" });
+        res.status(404).json({ message: "No encontrado en la base de datos" });
       } else {
         res.status(200).json(product);
       }
@@ -25,8 +25,21 @@ module.exports = class ProductApi {
   static async create(req, res) {
     try {
       let product = req.body;
-      product = await productModel.create(product);
-      res.status(201).json(product);
+      if (req.file != undefined) {
+        const imageName = req.file.filename;
+        product.imageUrl = "/" + imageName;
+      }
+      if (product.code == undefined) {
+        res
+          .status(400)
+          .json({ message: "Producto no puede ser guardado sin codigo" });
+      } else {
+        if (typeof product.categories === "string") {
+          product.categories = JSON.parse(product.categories);
+        }
+        product = await productModel.create(product);
+        res.status(201).json(product);
+      }
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
@@ -34,7 +47,7 @@ module.exports = class ProductApi {
   static async update(req, res) {
     try {
       const reference = req.params.reference;
-      const productModel = reference.body;
+      const product = reference.body;
       await productModel.updateOne({ reference: reference }, product);
       res.status(200).json();
     } catch (err) {
@@ -45,6 +58,19 @@ module.exports = class ProductApi {
     try {
       const reference = req.params.reference;
       await productModel.deleteOne({ reference: reference });
+      res.status(200).json();
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  }
+  static async changeProductImage(req, res) {
+    try {
+      const code = req.params.code;
+      const imageName = req.file.filename;
+      await productModel.updateOne(
+        { code: code },
+        { imageUrl: "/" + imageName }
+      );
       res.status(200).json();
     } catch (err) {
       res.status(400).json({ message: err.message });
