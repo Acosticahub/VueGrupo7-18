@@ -32,17 +32,12 @@ const userSchema = mongoose.Schema({
     },
     username: {
         type: String,
-        required: [true, "Digite su contraseña"],
+        required: [true, "Digite su usuario"],
         match: /\w\d.\w/
     },
     identification: {
         type: Number,
         required: [true, 'Digite su número de identificación']
-    },
-    typeid: {
-        type: String,
-        required: [true, 'Seleccione un tipo de identificación válido'],
-        enum: ['CC', 'TI', 'Pasaporte', 'NIP']
     },
     role: {
         type: String,
