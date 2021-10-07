@@ -9,17 +9,17 @@ module.exports = class UserApi {
             res.status(404).json({ message: err.message});
         }
     }
-    static async getByCode(req, res) {
-        try {
-            const code = req.params.identification;
-            const user = await userModel.findOne( {"code": code}  );
-            if(user == null) {
-                res.status(404).json({message: "Not found"}  );
+    static async getByCode(req, res){
+        try{
+            const username = req.params.username;
+            const user = await userModel.findOne({"username": username} );
+            if (user == null){
+                res.status(404).json({message: "Not found"} );
             } else {
                 res.status(200).json(user);
-            }            
-        } catch (err){
-            res.status(400).json({ message: err.message});
+            }
+        }catch (err){
+            res.status(400).json({message: err.message});
         }
     }
     static async create(req, res) {
@@ -28,6 +28,25 @@ module.exports = class UserApi {
             user = await userModel.create(user);
             res.status(201).json(user);
         } catch (err){
+            res.status(400).json({message: err.message})
+        }
+    }
+    static async update (req, res){
+        try{
+            const username = req.params.username;
+            const user = req.body;
+            await userModel.updateOne({username},user );
+            res.status(200).json()
+        }catch (err){
+            res.status(400).json({message: err.message})
+        }
+    }
+    static async delete (req, res){
+        try{
+            const username = req.params.username;
+            await userModel.deleteOne({username: username},);
+            res.status(200).json()
+        }catch (err){
             res.status(400).json({message: err.message})
         }
     }
