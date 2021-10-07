@@ -11,8 +11,8 @@ module.exports = class ClientApi {
     }
     static async getByCode(req, res) {
         try {
-            const code = req.params.identification;
-            const client = await clientModel.findOne( {"code": code}  );
+            const identification = req.params.identification;
+            const client = await clientModel.findOne( {"identification": identification}  );
             if(client == null) {
                 res.status(404).json({message: "Not found"}  );
             } else {
@@ -28,6 +28,25 @@ module.exports = class ClientApi {
             client = await clientModel.create(client);
             res.status(201).json(client);
         } catch (err){
+            res.status(400).json({message: err.message})
+        }
+    }
+    static async update (req, res) {
+        try {
+            const identification = req.params.identification;
+            const client = req.body;
+            await clientModel.updateOne( {identification: identification}, client );
+            res.status(200).json()
+        } catch (err) {
+            res.status(400).json({message: err.message})
+        }
+    }
+    static async delete (req, res) {
+        try {
+            const identification = req.params.identification;
+            await clientModel.deleteOne( {identification: identification}, );
+            res.status(200).json()
+        } catch (err) {
             res.status(400).json({message: err.message})
         }
     }

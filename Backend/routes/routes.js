@@ -6,11 +6,13 @@ const router = express.Router();
 //client Routes
 router.get("/clients", clientController.getAll)
 
-router.get("/clients/:code", clientController.getByCode)
+router.get("/clients/:identification", clientController.getByCode)
 
+router.post("/clients",  clientController.create)
 
-router.post("/clients",  clientController.create);
+router.put("/clients/:identification",  clientController.update);
 
+router.delete("/clients/:identification",  clientController.delete);
 
 // Fin Clients route
 
