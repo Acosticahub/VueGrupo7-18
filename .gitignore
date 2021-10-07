@@ -1,2 +1,9 @@
 
 Backend/node_modules
+Frontend/node_modules/axios/dist/axios.js
+Frontend/node_modules/axios/dist/axios.map
+Frontend/node_modules/axios/dist/axios.min.js
+Frontend/node_modules/axios/dist/axios.min.map
+Frontend/node_modules/axios/index.d.ts
+Frontend/node_modules/axios/lib/adapters/http.js
+Frontend/node_modules/axios/lib/adapters/README.md
