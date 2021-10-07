@@ -19,7 +19,7 @@
             <v-row>
                 <v-col
                     v-for="client in clients"
-                    :key="client.id"
+                    :key="client.identification"
                     lg="3"
                     md="4"
                     sm="6"
