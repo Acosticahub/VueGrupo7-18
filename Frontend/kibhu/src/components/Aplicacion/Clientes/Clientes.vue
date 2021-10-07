@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { getAllClients } from "../../../controllers/Client.controller"
 import CatalogCliente from '../../Aplicacion/Clientes/CatalogCliente.vue';
 import HeaderApp from '../HeaderApp.vue';
 export default {
@@ -58,10 +59,12 @@ data() {
     };
 },
 mounted() {
-    let clientes = localStorage.clients;
-    if (clientes !== undefined && clientes !== "") {
-    this.clients = JSON.parse(clientes);
-    }
+    getAllClients()
+    .then((response) => {
+        console.log(response);
+    } )
+    .catch((err) => console.error(err)  );
+
 },
 };
 </script>
