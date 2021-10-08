@@ -27,8 +27,9 @@
             <button
               type="button"
               class="w-100 btn btn-lg btn-outline-secondary"
+              icon href="/fooRoute" target="_blank"
             >
-              <a href="loginvista.html">Registrate aquí</a>
+              <a >Registrate aquí</a>
             </button>
           </div>
         </div>
@@ -63,8 +64,8 @@
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-white bg-dark">
+        <div class="card mb-4 rounded-3 shadow-sm border-gray">
+          <div class="card-header py-3 text-white bg-dark ">
             <h4 class="my-0 fw-normal">Premium</h4>
           </div>
           <div class="card-body">
