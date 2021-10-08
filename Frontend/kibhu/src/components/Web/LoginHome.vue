@@ -1,6 +1,6 @@
     <template>
   <div class="login" id="LoginWeb">
-    <div class="contenedor">
+    <div class="contenedor ml-5">
       <span>Nombre de usuario</span>
       <input type="text" placeholder="Enter your Username" />
       <span>Contraseña</span>
@@ -29,11 +29,10 @@
 
 .contenedor {
   width: 500px;
-  position: relative;
-  right: -1000px;
   padding: 60px;
   border-radius: 25px;
   background-color:rgba(255, 255, 255, 0.8);
+  
 
 }
 
@@ -87,8 +86,9 @@ p {
 }
 .login{
   background-image: url("../../assets/FondoLogin.jpg");
+  background-size: cover;
   width: 100%;
-  height: auto;
+  height: 800px;
   margin: 0;
 }
 
