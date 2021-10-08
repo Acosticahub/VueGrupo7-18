@@ -12,7 +12,7 @@ module.exports = class ProductApi {
   static async getByCode(req, res) {
     try {
       const reference = req.params.reference;
-      const product = await productModel.findOne({ Referencia: reference });
+      const product = await productModel.findOne({ reference: reference });
       if (product == null) {
         res.status(404).json({ message: "No encontrado en la base de datos" });
       } else {
