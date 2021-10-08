@@ -54,9 +54,9 @@
 </v-btn>
 </v-app-bar>
 <v-navigation-drawer app v-model="drawer" color="#dAA520">
-    <v-row  class="mt-5 mb-3 "  id="foto">
+  <v-row  class="mt-5 mb-3">
         <v-col cols="7">
-            <v-avatar size="160">
+            <v-avatar size="160" class="ml-5">
                 <img src="../../assets/Admin-01.png" alt="."/>
             </v-avatar>
             
