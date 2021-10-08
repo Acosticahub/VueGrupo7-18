@@ -61,7 +61,7 @@ data() {
 mounted() {
     getAllClients()
     .then((response) => {
-        console.log(response);
+        this.clients = response.data;
     } )
     .catch((err) => console.error(err)  );
 

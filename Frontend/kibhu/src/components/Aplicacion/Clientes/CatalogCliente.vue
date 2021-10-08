@@ -9,7 +9,7 @@
     shaped
   >
     <v-card-text>
-      <div>Cliente  {{client.name}} </div>
+      <div>Cliente   </div>
       <p class="text-h4 text--primary">
         {{client.name}}
       </p>
@@ -37,9 +37,9 @@
             Datos
           </p>
           <ul>
-          <li> <v-icon slot="prepend"> mdi-smart-card </v-icon>  {{client.cedula}} </li>
-          <li> <v-icon slot="prepend"> mdi-cellphone </v-icon>  {{client.contacto}} </li>
-          <li> <v-icon slot="prepend"> mdi-email </v-icon> {{client.email}} </li>
+          <li> <v-icon slot="prepend"> mdi-smart-card </v-icon>  {{client.identification}} </li>
+          <li> <v-icon slot="prepend"> mdi-cellphone </v-icon>  {{client.contact}} </li>
+          <li> <v-icon slot="prepend"> mdi-email </v-icon> {{client.mail}} </li>
           </ul>
         </v-card-text>
         <v-card-actions class="pt-0">
