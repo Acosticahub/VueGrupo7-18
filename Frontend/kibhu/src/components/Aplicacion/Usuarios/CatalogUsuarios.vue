@@ -4,7 +4,7 @@
 <div>
     <v-card class="mx-auto" max-width="344" outlined shaped>
     <v-card-text>
-        <div>Usuario # {{ user.id }}</div>
+        <div>Usuario # {{ user.username }}</div>
         <p class="text-h4 text--primary">
         {{ user.name }}
         </p>
@@ -26,8 +26,8 @@
         <v-card-text class="pb-0">
             <p class="text-h4 text--primary">Datos</p>
             <ul>
-            <li>{{ user.cedula }}</li>
-            <li>{{ user.contacto }}</li>
+            <li>{{ user.identification }}</li>
+            <li>{{ user.contact }}</li>
             <li>{{ user.email }}</li>
             </ul>
         </v-card-text>
