@@ -19,7 +19,7 @@
             <v-row>
                 <v-col
                     v-for="user in users"
-                    :key="user.id"
+                    :key="user.username"
                     lg="3"
                     md="4"
                     sm="6"
@@ -43,6 +43,7 @@
 </v-main>
 </template>
 <script>
+import { getAllUsers } from "../../../controllers/User.controller"
 import HeaderApp from '../HeaderApp.vue';
 import CatalogUsuarios from '../../Aplicacion/Usuarios/CatalogUsuarios.vue';
 export default {
@@ -57,10 +58,11 @@ data() {
     };
 },
 mounted() {
-    let Usuarios = localStorage.users;
-    if (Usuarios !== undefined && Usuarios !== "") {
-    this.users = JSON.parse(Usuarios);
-    }
+    getAllUsers()
+    .then((response) => {
+        this.users = response.data;
+    })
+    .catch((err) => console.error(err));
 },
 };
 </script>
