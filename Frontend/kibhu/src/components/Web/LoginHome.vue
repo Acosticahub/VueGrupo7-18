@@ -15,9 +15,10 @@
       ></v-checkbox>
       
       <router-link to="/appkibhu" type="submit" value="Login" class="button" >Login</router-link>
-      <div class="config cuenta">
-        <a href="">Olvide mi Contraseña | </a>
-        <a href="">No tengo cuenta</a>
+      
+      <div id="configcuenta">
+        <a href="" style="text-decoration:none ">Olvide mi Contraseña | </a>
+        <a href="" style="text-decoration:none">No tengo cuenta</a>
       </div>
     </div>
   </div>
@@ -65,9 +66,14 @@ input {
   padding: 15px 20px;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration-color: aliceblue;
+  text-align: center;
 }
 .button:hover {
-  background: gray
+  background: gray;
+  text-decoration: none;
+  color: aliceblue;
+  text-align: center;
 }
 p {
   text-align: center;
