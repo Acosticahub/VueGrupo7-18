@@ -29,7 +29,7 @@ module.exports = class ProductApi {
         const imageName = req.file.filename;
         product.imageUrl = "/" + imageName;
       }
-      if (product.code == undefined) {
+      if (product.reference == undefined) {
         res
           .status(400)
           .json({ message: "Producto no puede ser guardado sin codigo" });
@@ -47,7 +47,7 @@ module.exports = class ProductApi {
   static async update(req, res) {
     try {
       const reference = req.params.reference;
-      const product = reference.body;
+      const product = req.body;
       await productModel.updateOne({ reference: reference }, product);
       res.status(200).json();
     } catch (err) {
