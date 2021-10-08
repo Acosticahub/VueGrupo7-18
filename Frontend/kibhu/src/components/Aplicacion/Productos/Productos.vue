@@ -31,7 +31,7 @@
             lg="3"
             md="4"
             sm="6"
-            xs="12"
+            cols="12"
           >
             <CatalogProducto :product="product" :active="active" />
           </v-col>

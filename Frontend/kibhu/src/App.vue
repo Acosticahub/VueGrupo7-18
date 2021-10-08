@@ -1,17 +1,14 @@
 <template>
-    <v-main>
-      <router-view />
-    </v-main>
-
+  <v-main>
+    <router-view />
+  </v-main>
 </template>
 
 <script>
-
 export default {
-  components: { },
+  components: {},
   name: "App",
-  
-  
+
   data: () => ({
     //
   }),
@@ -20,8 +17,7 @@ export default {
 
 
 <style scoped>
-
-*{
-  font-family: 'Poppins', sans-serif;
+* {
+  font-family: "Poppins", sans-serif;
 }
 </style>

@@ -13,8 +13,6 @@
               hide-details="auto"
               v-model="stock"
               :rules="numberRules"
-              outlined
-              shaped
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-numeric </v-icon>
             </v-text-field>
@@ -26,8 +24,6 @@
               :rules="nameRules"
               hide-details="auto"
               v-model="name"
-              outlined
-              shaped
             >
               <v-icon slot="prepend" color="#dAA520">
                 mdi-package-variant
@@ -41,8 +37,6 @@
               :rules="nameRules"
               hide-details="auto"
               v-model="description"
-              outlined
-              shaped
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-pen </v-icon>
             </v-text-field>
@@ -55,8 +49,6 @@
               hide-details="auto"
               v-model="stock"
               :rules="numberRules"
-              outlined
-              shaped
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-numeric </v-icon>
             </v-text-field>
@@ -69,8 +61,6 @@
               hide-details="auto"
               v-model="pricein"
               :rules="numberRules"
-              outlined
-              shaped
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-cash </v-icon>
             </v-text-field>
@@ -83,8 +73,6 @@
               hide-details="auto"
               v-model="priceout"
               :rules="numberRules"
-              outlined
-              shaped
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-cash </v-icon>
             </v-text-field>
@@ -96,8 +84,6 @@
               :rules="nameRules"
               hide-details="auto"
               v-model="category"
-              outlined
-              shaped
             >
               <v-icon slot="prepend" color="#dAA520">
                 mdi-checkbox-multiple-blank
@@ -113,6 +99,7 @@
           </v-col>
         </v-row>
       </v-container>
+      <br /><br />
       <div class="botones">
         <v-btn tile color="#dAA520" @click="guardar()">
           <v-icon left> mdi-note-check </v-icon>
@@ -202,5 +189,14 @@ export default {
 <style>
 .botones {
   float: right;
+}
+input {
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+.v-input__slot {
+  margin-left: 20px;
+}
+.v-input__prepend-outer {
+  margin-left: 30px;
 }
 </style>
