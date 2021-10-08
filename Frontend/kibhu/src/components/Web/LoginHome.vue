@@ -32,7 +32,11 @@
   padding: 60px;
   border-radius: 25px;
   background-color:rgba(255, 255, 255, 0.8);
-  
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  width: 500px;
+  height: 400px;
 
 }
 
@@ -88,7 +92,7 @@ p {
   background-image: url("../../assets/FondoLogin.jpg");
   background-size: cover;
   width: 100%;
-  height: 800px;
+  height: 750px;
   margin: 0;
 }
 
