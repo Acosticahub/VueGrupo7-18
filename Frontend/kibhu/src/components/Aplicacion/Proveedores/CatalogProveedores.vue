@@ -26,7 +26,7 @@
           <v-card-text class="pb-0">
             <p class="text-h4 text--primary">Datos</p>
             <ul>
-              <li>{{ supplier.cedula }}</li>
+              <li>{{ supplier.ruc }}</li>
               <li>{{ supplier.contacto }}</li>
               <li>{{ supplier.email }}</li>
             </ul>
