@@ -54,21 +54,15 @@
 </v-btn>
 </v-app-bar>
 <v-navigation-drawer app v-model="drawer" color="#dAA520">
-    <v-row justify="center" class="mt-15 mb-1 ">
-        <v-col cols="8">
+    <v-row  class="mt-5 mb-3 "  id="foto">
+        <v-col cols="7">
             <v-avatar size="160">
                 <img src="../../assets/Admin-01.png" alt="."/>
             </v-avatar>
             
             </v-col>
         </v-row>
-        <v-btn
-        class="ma-12 "
-        :loading="loading"
-        :disabled="loading"
-        color="secondary"
-        @click="loader = 'loading'"
-    >
+        <v-btn class="btnadmin">
     Administrador 
     </v-btn>
     <p class="text-center white--text font-weight-medium "> Hernán Pérez </p>
@@ -118,7 +112,14 @@ export default {
 </script>
 
 <style>
+.foto{
+  left: 50px;
+}
 
+.btnadmin{
+  bottom: 15px;
+  left: 50px;
+}
 .dropbtn {
   background-color: #a0a0a0;
   color: black;
