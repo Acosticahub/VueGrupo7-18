@@ -22,11 +22,7 @@ router.get("/products/:reference", productController.getByCode);
 router.post("/products", productController.create);
 router.put("/products/:reference", productController.update);
 router.delete("/products/:reference", productController.delete);
-router.patch(
-  "/products/:reference/image",
-  upload.single("image"),
-  productController.changeProductImage
-);
+//router.patch( "/products/:reference/image",upload.single("image"),productController.changeProductImage);
 // Fin Products route
 
 // Users Routes

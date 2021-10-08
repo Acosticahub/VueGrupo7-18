@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema({
         },
         last: {
             type: String,
-            required: [true, 'Por favor digite un nombre']
+            required: [true, 'Por favor digite un apellido']
         }
     },
     mail: mongoose.SchemaTypes.Email,
