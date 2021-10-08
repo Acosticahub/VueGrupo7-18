@@ -28,7 +28,7 @@
                 <v-text-field
                     label="Identificación del Proveedor"
                     hide-details="auto"
-                    v-model="cedula"
+                    v-model="ruc"
                     type= "number"
                     outlined
                     shaped
@@ -88,7 +88,7 @@ export default {
 data() {
     return {
     name: "",
-    cedula: "",
+    ruc: "",
     contacto: "",
     email: "",
     nameRules: [
@@ -131,7 +131,7 @@ methods: {
     const Proveedor = {
         id: id,
         name: this.name,
-        cedula: this.cedula,
+        ruc: this.ruc,
         contacto: this.contacto,
         email: this.email,
     };
@@ -145,7 +145,7 @@ methods: {
     proveedores.push(Proveedor);
     alert("Bienvenido a la familia KIBHU");
     this.name = "";
-    this.cedula = "";
+    this.ruc = "";
     this.contacto = "";
     this.email = "";
     localStorage.idSupplier = id;
