@@ -11,7 +11,7 @@
     <v-card-text>
       <div>Cliente   </div>
       <p class="text-h4 text--primary">
-        {{client.name}}
+        {{client.name.first}}
       </p>
     </v-card-text>
     <v-card-actions>
