@@ -121,7 +121,7 @@ export default {
   left: 50px;
 }
 .dropbtn {
-  background-color: #a0a0a0;
+  background-color: #e6e6e6;
   color: black;
   padding: 16px;
   font-size: 16px;
@@ -137,7 +137,7 @@ export default {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #f0e9e9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
