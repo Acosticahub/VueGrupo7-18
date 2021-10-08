@@ -2,6 +2,7 @@ const express = require("express");
 const clientController = require("../controllers/Client.ctrl");
 const productController = require("../controllers/Product.ctrl");
 const userController = require("../controllers/User.crtl");
+const suplierController = require("../controllers/Suplier.ctrl")
 const router = express.Router();
 
 // Client Routes
@@ -36,5 +37,16 @@ router.put("/users/:username", userController.update);
 
 router.delete("/users/:username", userController.delete);
 // Fin Users route
+
+// supliers routes
+router.get("/supliers", suplierController.getAll)
+
+router.get("/supliers/:ruc", suplierController.getByCode)
+
+router.post("/supliers",  suplierController.create)
+
+router.put("/supliers/:ruc",  suplierController.update);
+
+router.delete("/supliers/:ruc",  suplierController.delete);
 
 module.exports = router;
