@@ -63,8 +63,7 @@ mounted() {
     .then((response) => {
         this.clients = response.data;
     } )
-    .catch((err) => console.error(err)  );
-
+    .catch((err) => console.error(err));
 },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
-<v-main>
-  <header-app />
-<div>
+    <v-main>
+        <header-app />
+    <div>
         <h1>Usuarios de KIBHU</h1>
         <v-btn 
         class="mx-2"
@@ -44,8 +44,8 @@
 </template>
 <script>
 import { getAllUsers } from "../../../controllers/User.controller"
-import HeaderApp from '../HeaderApp.vue';
 import CatalogUsuarios from '../../Aplicacion/Usuarios/CatalogUsuarios.vue';
+import HeaderApp from '../HeaderApp.vue';
 export default {
 components: {
     CatalogUsuarios,
@@ -53,7 +53,7 @@ components: {
 },
 data() {
     return {
-    clients: [],
+    users: [],
     active: true
     };
 },
@@ -61,7 +61,7 @@ mounted() {
     getAllUsers()
     .then((response) => {
         this.users = response.data;
-    })
+    } )
     .catch((err) => console.error(err));
 },
 };

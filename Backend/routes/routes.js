@@ -1,7 +1,7 @@
 const express = require("express");
 const clientController = require("../controllers/Client.ctrl");
 const productController = require("../controllers/Product.ctrl");
-const userController = require("../controllers/User.crtl");
+const userController = require("../controllers/User.ctrl");
 const suplierController = require("../controllers/Suplier.ctrl")
 const router = express.Router();
 

@@ -1,57 +1,88 @@
 <template>
 <v-main>
   <header-app />
-<div>
-    <v-card class="mx-auto" max-width="344" outlined shaped>
+  <div>
+    <v-card
+    class="mx-auto"
+    max-width="344"
+    outlined 
+    shaped
+  >
     <v-card-text>
-        <div>Usuario # {{ user.username }}</div>
-        <p class="text-h4 text--primary">
-        {{ user.name }}
-        </p>
+      <div>Usuario  </div>
+      <p class="text-h4 text--primary">
+        {{user.name.first}}
+      </p>
     </v-card-text>
     <v-card-actions>
-        <v-btn text color="grey darken-3" @click="reveal = true">
+      <v-btn
+        text
+        color="grey darken-3"
+        @click="reveal = true"
+      >
         Mirar más
-        </v-btn>
+      </v-btn>
     </v-card-actions>
 
     <v-expand-transition>
-        <v-card
+      <v-card
         v-if="reveal"
         class="transition-fast-in-fast-out v-card--reveal"
-        style="height: 100%"
-        outlined
+        style="height: 100%;"
+        outlined 
         shaped
-        >
+      >
         <v-card-text class="pb-0">
-            <p class="text-h4 text--primary">Datos</p>
-            <ul>
-            <li>{{ user.identification }}</li>
-            <li>{{ user.contact }}</li>
-            <li>{{ user.email }}</li>
-            </ul>
+          <p class="text-h4 text--primary">
+            Datos
+          </p>
+          <ul>
+          <li> <v-icon slot="prepend"> mdi-smart-card </v-icon>  {{user.identification}} </li>
+          <li> <v-icon slot="prepend"> mdi-cellphone </v-icon>  {{user.contact}} </li>
+          <li> <v-icon slot="prepend"> mdi-email </v-icon> {{user.mail}} </li>
+          </ul>
         </v-card-text>
         <v-card-actions class="pt-0">
-            <v-btn text color="grey darken-3" @click="reveal = false">
+          <v-btn
+            text
+            color="grey darken-3"
+            @click="reveal = false"
+          >
             Cerrar
-            </v-btn>
+          </v-btn>
         </v-card-actions>
-        </v-card>
+      </v-card>
     </v-expand-transition>
-    </v-card>
-</div>
+  </v-card>
+  </div>
 </v-main>
 </template>
+
 <script>
 import HeaderApp from '../HeaderApp.vue';
 export default {
-    components: { HeaderApp },
-props: ["users", "active"],
-data: () => ({
-    reveal: false,
-}),
-};
+  components: { HeaderApp },
+  props: ["user", "active"],
+  data: () => ({
+      reveal: false,
+    }),
+}
 </script>
 
-<style>
+<style scope>
+.big {
+    font-size: 50px !important;
+}
+.v-card--reveal {
+  bottom: 0;
+  opacity: 1 !important;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.v-card {
+  background: linear-gradient(to bottom, goldenrod,  #bebebe 80% );
+}
+
 </style>
