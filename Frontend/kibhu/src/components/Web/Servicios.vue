@@ -49,4 +49,7 @@ export default {};
 .bloque p {
     text-align: justify !important;
 }
+.mark{
+  background-color: rgb(209, 209, 209) !important;}
+
 </style>
