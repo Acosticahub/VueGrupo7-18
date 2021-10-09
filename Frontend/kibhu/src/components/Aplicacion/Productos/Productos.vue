@@ -1,6 +1,7 @@
 <template>
   <v-main>
     <header-app />
+
     <div>
       <h1>Lista de Productos</h1>
       <v-btn
@@ -23,6 +24,7 @@
       <v-container>
         <v-row>
           <v-col v-for="product in products" :key="product.reference">
+
             <CatalogProducto :product="product" :active="active" />
           </v-col>
         </v-row>

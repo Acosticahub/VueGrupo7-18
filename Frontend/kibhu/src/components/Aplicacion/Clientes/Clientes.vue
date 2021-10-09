@@ -40,7 +40,7 @@
             </v-row>
         </v-container>
     </div>
-    </v-main>
+</v-main>
 </template>
 
 <script>
