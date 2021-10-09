@@ -11,7 +11,7 @@
     <v-card-text>
       <div>Cliente   </div>
       <p class="text-h4 text--primary">
-        {{client.name.first}}
+        {{client.firstname}}  {{client.lastname}}
       </p>
     </v-card-text>
     <v-card-actions>
@@ -53,6 +53,14 @@
         </v-card-actions>
       </v-card>
     </v-expand-transition>
+    <v-card-actions>
+        <v-btn tile color="success" dark :to=" '/clientes/' + client.identification" >
+          <v-icon left > mdi-account-edit </v-icon>
+        </v-btn>
+        <v-btn tile color="red" class=bg-warning>
+          <v-icon left @click="eliminar()"> mdi-account-remove </v-icon>
+        </v-btn>
+    </v-card-actions>
   </v-card>
   </div>
 </v-main>
@@ -60,12 +68,25 @@
 
 <script>
 import HeaderApp from '../HeaderApp.vue';
+import { deleteClient } from "../../../controllers/Client.controller"
 export default {
   components: { HeaderApp },
   props: ["client", "active"],
   data: () => ({
       reveal: false,
     }),
+  methods: {
+    editar() {
+      this.$router.push(`/clientes/${this.client.identification}`);
+    },
+    eliminar() {
+      deleteClient(this.client.identification)
+      .then( () => {
+        window.location.reload();
+      })
+      .catch((err)   => console.error(err.response.data.message));
+    }
+}
 }
 </script>
 

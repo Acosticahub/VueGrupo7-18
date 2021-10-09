@@ -36,14 +36,21 @@
       component: () => import( '../components/Aplicacion/Clientes/Clientes.vue')
     },
     {
-      path: '/newcliente',
-      name: 'NewCliente',
+      path: '/clientes/new',
+      name: 'New Cliente',
     
       component: () => import( '../components/Aplicacion/Clientes/NewCliente.vue')
     },
     {
-    path: '/productos',
-    name: 'Productos',
+      path: '/clientes/:identification',
+      name: 'Edit Client',
+    
+      component: () => import( '../components/Aplicacion/Clientes/NewCliente.vue')
+    },
+
+    {
+      path: '/productos',
+      name: 'Productos',
 
     component: () => import( '../components/Aplicacion/Productos/Productos.vue')
   },

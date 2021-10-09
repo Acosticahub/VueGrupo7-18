@@ -9,7 +9,7 @@
         large
         color="#dAA520"
         elevation="2" 
-        bottom right fixed fab to="/NewCliente">
+        bottom right fixed fab to="/clientes/new">
             <v-icon dark>mdi-account-plus</v-icon>
         </v-btn>
         <v-text-field label="Buscar">
@@ -27,14 +27,6 @@
             >
                     <v-card>
                         <CatalogCliente :client="client" :active="active" />
-                        <v-card-actions>
-                            <v-btn tile color="success">
-                                <v-icon left> mdi-account-edit </v-icon>
-                            </v-btn>
-                            <v-btn tile color="red" dark>
-                                <v-icon left> mdi-account-remove </v-icon>
-                            </v-btn>
-                        </v-card-actions>
                     </v-card>
                 </v-col>
             </v-row>
@@ -65,6 +57,7 @@ mounted() {
     } )
     .catch((err) => console.error(err));
 },
+
 };
 </script>
 

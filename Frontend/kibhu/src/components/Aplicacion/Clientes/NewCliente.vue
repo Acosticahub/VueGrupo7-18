@@ -2,7 +2,7 @@
 <v-main>
     <header-app />
 <div>
-    <h1>Nuevo Cliente</h1>
+    <h1> {{ isNew ? "New" : "Edit"}} Cliente </h1>
     <v-container class="container">
         <v-row>
             <v-col
@@ -13,13 +13,30 @@
                     label="Nombre del cliente"
                     :rules="nameRules"
                     hide-details="auto"
-                    v-model="name"
+                    v-model="firstname"
                     outlined
                     shaped
                     >
                     <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
                 </v-text-field>
             </v-col>
+
+            <v-col
+            cols="12"
+            sm="6"
+            >
+                <v-text-field
+                    label="Apellido del cliente"
+                    :rules="nameRules"
+                    hide-details="auto"
+                    v-model="lastname"
+                    outlined
+                    shaped
+                    >
+                    <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
+                </v-text-field>
+            </v-col>
+
 
             <v-col
             cols="12"
@@ -89,27 +106,47 @@
         </v-row>
     </v-container>
     <div class="botones">
-    <v-btn tile color="#dAA520" @click="guardar()">
+    <v-btn tile color="#dAA520" @click="guardar()" v-if="isNew">
         <v-icon left> mdi-account-check </v-icon>
         Guardar
     </v-btn>
+    <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
+        <v-icon left> mdi-account-check </v-icon>
+        Actualizar
+    </v-btn>
     </div>
+    <v-snackbar v-model="snackbar">
+    {{snackbarText}}
+        <template v-slot:action="{  attrs} ">
+            <v-btn color="blue" text v-bind="attrs" @click="closeConfirmation()">
+                Cerrar
+            </v-btn>
+        </template>
+    </v-snackbar>
 </div>
 </v-main>
 </template>
 
 <script>
 import HeaderApp from '../HeaderApp.vue';
+import { 
+    getClient,
+    createClient,
+    } from "../../../controllers/Client.controller"
 export default {
     components: { HeaderApp },
 data() {
     return {
-    name: "",
-    identification: "",
-    contact: "",
+    firstname: "",
+    lastname: "",
+    identification: 0,
+    contact: 0,
     mail: "",
     typeid: "",
     items: ['CC', 'TI', 'Pasaporte', 'NIP'],
+    snackbar: false,
+    snackbarText: "",
+    isNew: true,
     nameRules: [
         (value) => !!value || "Required.",
         (value) => (value && value.length >= 3) || "Min 3 characters",
@@ -128,51 +165,54 @@ data() {
     };
 
 },
-mounted() {
-    console.log("idClient:", localStorage.idClient);
-    console.log("clients:", localStorage.clients);
+
+created()  {
+    const identification = this.$route.params.identification;
+    if (identification != undefined) {
+        getClient(identification)
+            .then((response)  => {
+                const client = response.data;
+                this.identification = client.identification;
+                this.firstname = client.firstname;
+                this.lastname = client.lastname;
+                this.contact = client.contact;
+                this.mail = client.mail;
+                this.typeid = client.typeid;
+
+                this.isNew = false;
+            })
+            .catch((err)  =>  console.error(err));
+    }
 },
+
 methods: {
     guardar() {
-    console.log("Guardar");
-      // Validar campos obligatorios
-    if (this.name === "") {
-        alert("El nombre es un campo obligatorio");
-        return;
-    }
-      //Agregar producto al localstorage
-    let id = localStorage.idClient;
-    if (id === undefined || id == "") {
-        id = 1;
-    } else {
-        id = parseInt(id) + 1;
-    }
-    const cliente = {
-        id: id,
-        name: this.name,
-        identification: this.identification,
-        contact: this.contact,
-        mail: this.mail,
-        typeid: this.typeid
-
-    };
-    let clientes = localStorage.clients;
-    if (clientes === undefined || clientes == "") {
-        clientes = [];
-    } else {
-        clientes = JSON.parse(clientes);
-    }
-    console.log("clientes", clientes);
-    clientes.push(cliente);
-    alert("Bienvenido a la familia KIBHU");
-    this.name = "";
-    this.identification = "";
-    this.contact = "";
-    this.mail = "";
-    this.typeid = "";
-    localStorage.idClient = id;
-    localStorage.clients = JSON.stringify(clientes);
-    location.href = "/clientes"
+        const client = {
+            identification : this.identification,
+            contact : this.contact,
+            firstname : this.firstname,
+            lastname : this.lastname,
+            mail : this.mail,
+            typeid : this.typeid,
+        };
+    createClient(client) 
+        .then(()    => {
+            this.openSuccesDialog("Guardado correctamente");
+        } )   
+        .catch((err)  => console.error(err));
+    
+    },
+    openSuccesDialog(mensaje) {
+        this.snackbarText = mensaje;
+        this.snackbar = true;
+    },
+    openErrorDialog(mensaje) {
+        this.snackbarText = mensaje;
+        this.snackbar = true;
+    },
+    closeConfirmation() {
+        this.snackbar = false;
+        this.$router.push("/clients");
     },
 },
 };
