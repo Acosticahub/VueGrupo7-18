@@ -1,7 +1,7 @@
 <template>
-<v-main>
-  <header-app />
-  <div>
+  <v-main>
+    <header-app />
+    <div>
       <v-card class="mx-auto cards" max-width="344">
         <v-img height="200px" :src="product.img"></v-img>
 
@@ -18,12 +18,12 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-  </div>
+    </div>
   </v-main>
 </template>
 
 <script>
-import HeaderApp from '../HeaderApp.vue';
+import HeaderApp from "../HeaderApp.vue";
 
 export default {
   components: { HeaderApp },

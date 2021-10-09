@@ -1,13 +1,16 @@
 <template>
-<v-main>
+  <v-main>
     <header-app />
 <div>
     <h1> {{ isNew ? "New" : "Edit"}} Cliente </h1>
     <v-container class="container">
         <v-row>
-            <v-col
-            cols="12"
-            sm="6"
+          <v-col cols="12" sm="6">
+            <v-text-field
+              label="Nombre del cliente:"
+              :rules="nameRules"
+              hide-details="auto"
+              v-model="name"
             >
                 <v-text-field
                     label="Nombre del cliente"
@@ -21,9 +24,13 @@
                 </v-text-field>
             </v-col>
 
-            <v-col
-            cols="12"
-            sm="6"
+          <v-col cols="12" sm="6">
+            <v-select
+              :items="items"
+              filled
+              label="Tipo de Identificación:"
+              dense
+              v-model="typeid"
             >
                 <v-text-field
                     label="Apellido del cliente"
@@ -54,55 +61,39 @@
                     
             </v-col>
 
-
-            <v-col
-            cols="12"
-            sm="6"
+          <v-col cols="12" sm="6">
+            <v-text-field
+              label="Identificación del cliente:"
+              hide-details="auto"
+              v-model="identification"
+              type="number"
             >
-                <v-text-field
-                    label="Identificación del cliente"
-                    hide-details="auto"
-                    v-model="identification"
-                    type= "number"
-                    outlined
-                    shaped
-                    >
-                    <v-icon slot="prepend" color="#dAA520"> mdi-smart-card </v-icon>
-                </v-text-field>
-            </v-col>
+              <v-icon slot="prepend" color="#dAA520"> mdi-smart-card </v-icon>
+            </v-text-field>
+          </v-col>
 
-            <v-col
-            cols="12"
-            sm="6"
+          <v-col cols="12" sm="6">
+            <v-text-field
+              label="Número de contacto:"
+              type="number"
+              hide-details="auto"
+              v-model="contact"
+              :rules="numberRules"
             >
-                <v-text-field
-                    label="Número de contacto"
-                    type = "number"
-                    hide-details="auto"
-                    v-model="contact"
-                    :rules="numberRules"
-                    outlined
-                    shaped
-                    >
-                    <v-icon slot="prepend" color="#dAA520"> mdi-cellphone </v-icon>
-                </v-text-field>
-            </v-col>
+              <v-icon slot="prepend" color="#dAA520"> mdi-cellphone </v-icon>
+            </v-text-field>
+          </v-col>
 
-            <v-col
-            cols="12"
-            sm="6"
+          <v-col cols="12" sm="6">
+            <v-text-field
+              v-model="mail"
+              :rules="mailRules"
+              hide-details="auto"
+              label="Correo de contacto:"
             >
-                <v-text-field
-                    v-model="mail"
-                    :rules="mailRules"
-                    hide-details="auto"
-                    label="Correo de contacto"
-                    outlined
-                    shaped
-                    >
-                    <v-icon slot="prepend" color="#dAA520"> mdi-email </v-icon>
-                </v-text-field>
-            </v-col>
+              <v-icon slot="prepend" color="#dAA520"> mdi-email </v-icon>
+            </v-text-field>
+          </v-col>
         </v-row>
     </v-container>
     <div class="botones">
@@ -134,8 +125,8 @@ import {
     createClient,
     } from "../../../controllers/Client.controller"
 export default {
-    components: { HeaderApp },
-data() {
+  components: { HeaderApp },
+  data() {
     return {
     firstname: "",
     lastname: "",
@@ -150,18 +141,17 @@ data() {
     nameRules: [
         (value) => !!value || "Required.",
         (value) => (value && value.length >= 3) || "Min 3 characters",
-    ],
-    mailRules: [
-        (value) => !!value || 'Required.',
-        (value) => value.length <= 20 || 'Max 20 characters',
-        (value) => {
-            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            return pattern.test(value) || 'Invalid e-mail.'
-        }
-    ],
-    numberRules: [
+      ],
+      mailRules: [
         (value) => !!value || "Required.",
-    ]
+        (value) => value.length <= 20 || "Max 20 characters",
+        (value) => {
+          const pattern =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || "Invalid e-mail.";
+        },
+      ],
+      numberRules: [(value) => !!value || "Required."],
     };
 
 },
@@ -214,17 +204,27 @@ methods: {
         this.snackbar = false;
         this.$router.push("/clients");
     },
-},
+  },
 };
 </script>
 
 <style>
 .botones {
-float: right;
+  float: right;
 }
 h1 {
-    letter-spacing: 3px;
-    text-align: center;
-    text-shadow: 2px 2px 4px goldenrod;
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 2px 2px 4px goldenrod;
+}
+input {
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+.v-input__slot {
+  margin-left: 20px;
+  background: rgba(255, 255, 255, 0) !important;
+}
+.v-input__prepend-outer {
+  margin-left: 30px;
 }
 </style>
