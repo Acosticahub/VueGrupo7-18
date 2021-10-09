@@ -1,8 +1,10 @@
     <template>
   <header>
     <nav>
+        
       <v-app-bar flat app>
         <div >
+            
           <v-img
             contain
             lazy-src="../../assets/Logo Kibhu blanco-02.svg"
@@ -53,8 +55,13 @@
         <li><a class="search-box" >  
             <button class="btn-search"><em class="fa fa-search"></em></button>
             <input type="text" class="input-search" placeholder="Búsqueda">
-        </a> </li>            
+        </a> </li>               
     </ul>
+    <!--<input type="checkbox" id="check">
+    <label for ="check" class="checkbtn">
+        <em class="fas fa-list-ul"></em>
+    </label>-->
+    
 
         <v-btn
           class="ma-2"
@@ -116,7 +123,7 @@ nav ul a :active:hover{
 
 .checkbtn{
     font-size: 30px;
-    color: white;
+    color: rgb(87, 87, 87);
     float: right;
     line-height: 80px;
     margin-right: 40px;
