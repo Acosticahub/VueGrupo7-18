@@ -16,7 +16,7 @@
       
       <router-link to="/appkibhu" type="submit" value="Login" class="button" >Login</router-link>
       
-      <div id="configcuenta">
+      <div class="configcuenta" >
         <a href="" style="text-decoration:none; color:gray; ">Olvide mi Contraseña | </a>
         <a href="" style="text-decoration:none; color:gray; ">No tengo cuenta</a>
       </div>
@@ -27,7 +27,10 @@
 </script>
 
 <style>
-
+.configcuenta{
+  margin-left: 55px;
+  margin-top: 15px;
+}
 .contenedor {
   width: 400px;
   padding: 60px;
