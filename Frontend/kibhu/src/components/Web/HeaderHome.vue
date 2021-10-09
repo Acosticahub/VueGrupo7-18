@@ -2,7 +2,7 @@
   <header>
     <nav>
       <v-app-bar flat app>
-        <div class="d-flex align-center ma-12 $vuetify.breakpoint.lgAndUp?'text-left':'text-right">
+        <div >
           <v-img
             contain
             lazy-src="../../assets/Logo Kibhu blanco-02.svg"
@@ -13,7 +13,7 @@
         </div>
         <v-spacer></v-spacer>
 
-        <div style=" d-sm-none d-md-flex">
+        <div>
             <v-btn
             href="#LoginWeb"
             depressed
