@@ -1,6 +1,7 @@
 <template>
   <v-main>
     <header-app />
+
     <div>
       <h1>Lista de Productos</h1>
       <v-btn
@@ -31,7 +32,7 @@
             lg="3"
             md="4"
             sm="6"
-            cols="12"
+            xs="12"
           >
             <CatalogProducto :product="product" :active="active" />
           </v-col>
