@@ -17,8 +17,8 @@
       <router-link to="/appkibhu" type="submit" value="Login" class="button" >Login</router-link>
       
       <div id="configcuenta">
-        <a href="" style="text-decoration:none ">Olvide mi Contraseña | </a>
-        <a href="" style="text-decoration:none">No tengo cuenta</a>
+        <a href="" style="text-decoration:none; color:gray; ">Olvide mi Contraseña | </a>
+        <a href="" style="text-decoration:none; color:gray; ">No tengo cuenta</a>
       </div>
     </div>
   </div>
@@ -29,13 +29,15 @@
 <style>
 
 .contenedor {
-  width: 500px;
+  width: 400px;
   padding: 60px;
+  padding-left: 40px;
+  padding-right: 5px;
   border-radius: 25px;
   background-color:rgba(255, 255, 255, 0.8);
   position: absolute;
   top: 100px;
-  right: 100px;
+  right: 200px;
   width: 500px;
   height: 400px;
 
@@ -59,11 +61,11 @@ input {
 }
 .button {
   border: none;
-  width: 100%;
+  width: 90%;
   color: white;
   font-size: 20px;
   background: #daa520;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration-color: aliceblue;

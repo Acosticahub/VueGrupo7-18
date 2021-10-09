@@ -48,7 +48,7 @@
 </div>
 
 
-<v-btn flat link href="../../" >
+<v-btn class="sign" flat link href="../../" >
     <span>Sign Out</span>
     <v-icon rigth>mdi-logout</v-icon>
 </v-btn>
@@ -68,7 +68,7 @@
     <p class="text-center white--text font-weight-medium "> Hernán Pérez </p>
     <v-list dense nav>
         
-        <v-list-item v-for="link in links" :key="link.text" route :to="link.route">
+        <v-list-item class="white--text" v-for="link in links" :key="link.text" route :to="link.route">
             <v-list-item-action>
                 <v-icon class="white--text"> {{ link.icon }} </v-icon>
             </v-list-item-action>
@@ -112,6 +112,10 @@ export default {
 </script>
 
 <style>
+.sign{
+  
+    text-decoration: none !important;
+}
 .foto{
   left: 50px;
 }
