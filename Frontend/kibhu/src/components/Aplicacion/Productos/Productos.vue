@@ -17,22 +17,12 @@
       >
         <v-icon dark>mdi-tag-plus</v-icon>
       </v-btn>
+      <v-text-field label="Buscar">
+        <v-icon slot="append" color="red"> mdi-magnify </v-icon>
+      </v-text-field>
       <v-container>
-        <v-col md="6">
-          <v-text-field label="Buscar">
-            <v-icon slot="append" color="red"> mdi-magnify </v-icon>
-          </v-text-field>
-        </v-col>
-
         <v-row>
-          <v-col
-            v-for="product in products"
-            :key="product.reference"
-            lg="3"
-            md="4"
-            sm="6"
-            cols="12"
-          >
+          <v-col v-for="product in products" :key="product.reference">
             <CatalogProducto :product="product" :active="active" />
           </v-col>
         </v-row>
