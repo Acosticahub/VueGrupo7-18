@@ -1,24 +1,24 @@
     <template>
-    <header>
+  <header>
     <nav>
-        <v-app-bar flat app>
-        <div class="d-flex align-center ma-12">
-            <v-img
+      <v-app-bar flat app>
+        <div class="d-flex align-center ma-12 $vuetify.breakpoint.lgAndUp?'text-left':'text-right">
+          <v-img
             contain
             lazy-src="../../assets/Logo Kibhu blanco-02.svg"
             max-height="200"
             max-width="130"
             src="../../assets/Logo Kibhu Para fondo claro -02.png"
-            ></v-img>
+          ></v-img>
         </div>
         <v-spacer></v-spacer>
 
-        <div>
+        <div style=" d-sm-none d-md-flex">
             <v-btn
             href="#LoginWeb"
             depressed
             text
-            class="text-decoration-none black--text ma-12"
+            class="text-decoration-none black--text ma-12 $vuetify.breakpoint.lgAndUp?'text-left':'text-right "
             >Inicio</v-btn
             >
             <v-btn
@@ -33,38 +33,43 @@
             href="#SobreNosotros"
             depressed
             text
-            class="text-decoration-none black--text ma-12"
+            class="text-decoration-none black--text ma-12 "
             >Sobre Nosotros</v-btn
             >
             <v-btn
             href="#Noticias"
             depressed
             text
-            class="text-decoration-none black--text ma-12"
+            class="text-decoration-none black--text ma-12 "
             >Noticias</v-btn
             >
         </div>
 
+
+
+
         <v-btn
-            class="ma-2"
-            :loading="loading"
-            :disabled="loading"
-            color="#DAA520"
-            @click="loader = 'loading'"
+          class="ma-2"
+          :loading="loading"
+          :disabled="loading"
+          color="#DAA520"
+          @click="loader = 'loading'"
         >
-            <span style="color:white">Regístrate</span>
-            <v-icon style="color:white">mdi-account-plus</v-icon>
+          <span style="color: white">Regístrate</span>
+          <v-icon style="color: white">mdi-account-plus</v-icon>
         </v-btn>
-        </v-app-bar>
+      </v-app-bar>
     </nav>
-    </header>
-    </template>
+  </header>
+</template>
 
     <script>
-    export default {
-    name: "Header",
-    };
-    </script>
+export default {
+  name: "Header",
+};
+</script>
 
     <style>
-    </style>
+
+
+</style>
