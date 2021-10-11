@@ -6,12 +6,6 @@
     <v-container class="container">
         <v-row>
           <v-col cols="12" sm="6">
-            <v-text-field
-              label="Nombre del cliente:"
-              :rules="nameRules"
-              hide-details="auto"
-              v-model="name"
-            >
                 <v-text-field
                     label="Nombre del cliente"
                     :rules="nameRules"
@@ -25,13 +19,6 @@
             </v-col>
 
           <v-col cols="12" sm="6">
-            <v-select
-              :items="items"
-              filled
-              label="Tipo de Identificación:"
-              dense
-              v-model="typeid"
-            >
                 <v-text-field
                     label="Apellido del cliente"
                     :rules="nameRules"
