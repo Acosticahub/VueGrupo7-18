@@ -1,96 +1,94 @@
-  import Vue from 'vue'
-  import VueRouter from 'vue-router'
-  import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
 
+Vue.use(VueRouter);
 
-  Vue.use(VueRouter)
-
-  const routes = [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/appkibhu',
-      name: 'Appkibhu',
-
-      component: () => import( '../views/Appkibhu.vue')
-    },
-    {
-      path: '/HeaderHome',
-      name: 'HeaderHome',
-    
-      component: () => import( '../components/Web/HeaderHome.vue')
-    },
-    {
-      path: '/inicioapp',
-      name: 'InicioApp',
-    
-      component: () => import( '../components/Aplicacion/InicioApp.vue')
-    },
-    {
-      path: '/clientes',
-      name: 'Clientes',
-    
-      component: () => import( '../components/Aplicacion/Clientes/Clientes.vue')
-    },
-    {
-      path: '/clientes/new',
-      name: 'New Cliente',
-    
-      component: () => import( '../components/Aplicacion/Clientes/NewCliente.vue')
-    },
-    {
-      path: '/clientes/:identification',
-      name: 'Edit Client',
-    
-      component: () => import( '../components/Aplicacion/Clientes/NewCliente.vue')
-    },
-
-    {
-      path: '/productos',
-      name: 'Productos',
-
-    component: () => import( '../components/Aplicacion/Productos/Productos.vue')
+const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/newproducto',
-    name: 'NewProducto',
-
-    component: () => import( '../components/Aplicacion/Productos/NewProducto.vue')
+    path: "/appkibhu",
+    name: "Appkibhu",
+    component: () => import("../views/Appkibhu.vue"),
   },
   {
-    path: '/usuarios',
-    name: 'Usuarios',
-
-    component: () => import( '../components/Aplicacion/Usuarios/Usuarios.vue')
+    path: "/HeaderHome",
+    name: "HeaderHome",
+    component: () => import("../components/Web/HeaderHome.vue"),
   },
   {
-    path: '/newusuario',
-    name: 'NewUsuario',
+    path: "/inicioapp",
+    name: "InicioApp",
+    component: () => import("../components/Aplicacion/InicioApp.vue"),
+  },
 
-    component: () => import( '../components/Aplicacion/Usuarios/NewUsuario.vue')
+  {
+    path: "/clientes",
+    name: "Clientes",
+    component: () => import("../components/Aplicacion/Clientes/Clientes.vue"),
   },
   {
-    path: '/proveedores',
-    name: 'Proveedores',
-
-    component: () => import( '../components/Aplicacion/Proveedores/Proveedores.vue')
+    path: "/clientes/new",
+    name: "New Cliente",
+    component: () => import("../components/Aplicacion/Clientes/NewCliente.vue"),
   },
   {
-    path: '/newproveedores',
-    name: 'NewProveedores',
-
-    component: () => import( '../components/Aplicacion/Proveedores/NewProveedores.vue')
+    path: "/clientes/:identification",
+    name: "Edit Client",
+    component: () => import("../components/Aplicacion/Clientes/NewCliente.vue"),
   },
 
-  ]
+  {
+    path: "/productos",
+    name: "Productos",
+    component: () => import("../components/Aplicacion/Productos/Productos.vue"),
+  },
+  {
+    path: "/productos/new",
+    name: "New Producto",
+    component: () =>
+      import("../components/Aplicacion/Productos/NewProducto.vue"),
+  },
+  {
+    path: "/productos/:reference",
+    name: "Edit Product",
+    component: () =>
+      import("../components/Aplicacion/Productos/NewProducto.vue"),
+  },
 
-  const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
-  })
+  {
+    path: "/usuarios",
+    name: "Usuarios",
+    component: () => import("../components/Aplicacion/Usuarios/Usuarios.vue"),
+  },
+  {
+    path: "/newusuario",
+    name: "NewUsuario",
+    component: () => import("../components/Aplicacion/Usuarios/NewUsuario.vue"),
+  },
 
-  export default router
+  {
+    path: "/proveedores",
+    name: "Proveedores",
+    component: () =>
+      import("../components/Aplicacion/Proveedores/Proveedores.vue"),
+  },
+  {
+    path: "/newproveedores",
+    name: "NewProveedores",
+    component: () =>
+      import("../components/Aplicacion/Proveedores/NewProveedores.vue"),
+  },
+];
+
+const router = new VueRouter({
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes,
+});
+
+export default router;
