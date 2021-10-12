@@ -2,7 +2,7 @@
   <v-main>
     <header-app />
     <div>
-      <h1>Agregar un Nuevo Producto</h1>
+      <h1>{{ isNew ? "Agregar un Nuevo" : "Editar" }} Producto</h1>
       <br />
       <v-container class="container">
         <v-row>
@@ -101,17 +101,33 @@
       </v-container>
       <br /><br />
       <div class="botones">
-        <v-btn tile color="#dAA520" @click="guardar()">
+        <v-btn tile color="#dAA520" @click="guardar()" v-if="isNew">
           <v-icon left> mdi-note-check </v-icon>
           Guardar
         </v-btn>
+        <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
+          <v-icon left> mdi-account-check </v-icon>
+          Actualizar
+        </v-btn>
       </div>
+      <v-snackbar v-model="snackbar">
+        {{ snackbarText }}
+        <template v-slot:action="{ attrs }">
+          <v-btn color="blue" text v-bind="attrs" @click="closeConfirmation()">
+            Cerrar
+          </v-btn>
+        </template>
+      </v-snackbar>
     </div>
   </v-main>
 </template>
 
 <script>
 import HeaderApp from "../HeaderApp.vue";
+import {
+  getProduct,
+  createProduct,
+} from "../../../controllers/Product.controller";
 export default {
   components: { HeaderApp },
   data() {
@@ -122,8 +138,21 @@ export default {
       stock: "",
       pricein: "",
       priceout: "",
-      category: "",
+      category: [
+        "Cuadernos",
+        "Lapiceros y lápiz",
+        "Plastilina",
+        "Papeles",
+        "Cartulinas",
+        "Foami",
+        "Vinilos",
+        "Pinceles",
+        "Tijeras",
+      ],
       img: "",
+      snackbar: false,
+      snackbarText: "",
+      isNew: true,
       nameRules: [
         (value) => !!value || "Campo Requerido.",
         (value) => (value && value.length >= 3) || "Min 3 caracteres",
@@ -131,27 +160,32 @@ export default {
       numberRules: [(value) => !!value || "Campo Requerido."],
     };
   },
-  mounted() {
-    console.log("idProduct:", localStorage.idProduct);
-    console.log("products:", localStorage.products);
+
+  created() {
+    const reference = this.$route.params.reference;
+    if (reference != undefined) {
+      getProduct(reference)
+        .then((response) => {
+          const product = response.data;
+          this.reference = product.reference;
+          this.name = product.name;
+          this.description = product.description;
+          this.stock = product.stock;
+          this.pricein = product.pricein;
+          this.priceout = product.priceout;
+          this.category = product.category;
+          this.img = product.img;
+
+          this.isNew = false;
+        })
+        .catch((err) => console.error(err));
+    }
   },
+
   methods: {
     guardar() {
-      console.log("Guardar");
-      // Validar campos obligatorios
-      if (this.name === "") {
-        alert("El nombre es un campo obligatorio");
-        return;
-      }
-      //Agregar producto al localstorage
-      let id = localStorage.idProduct;
-      if (id === undefined || id == "") {
-        id = 1;
-      } else {
-        id = parseInt(id) + 1;
-      }
-      const producto = {
-        id: id,
+      const product = {
+        reference: this.reference,
         reference: this.reference,
         name: this.name,
         description: this.description,
@@ -161,26 +195,23 @@ export default {
         category: this.category,
         img: this.img,
       };
-      let productos = localStorage.products;
-      if (productos === undefined || productos == "") {
-        productos = [];
-      } else {
-        productos = JSON.parse(productos);
-      }
-      console.log("productos", productos);
-      productos.push(producto);
-      alert("Se ha Agregado el Producto Satisfactoriamente");
-      this.reference = "";
-      this.name = "";
-      this.description = "";
-      this.stock = "";
-      this.pricein = "";
-      this.priceout = "";
-      this.category = "";
-      this.img = "";
-      localStorage.idProduct = id;
-      localStorage.products = JSON.stringify(productos);
-      location.href = "/Productos";
+      createProduct(product)
+        .then(() => {
+          this.openSuccesDialog("Guardado correctamente");
+        })
+        .catch((err) => console.error(err));
+    },
+    openSuccesDialog(mensaje) {
+      this.snackbarText = mensaje;
+      this.snackbar = true;
+    },
+    openErrorDialog(mensaje) {
+      this.snackbarText = mensaje;
+      this.snackbar = true;
+    },
+    closeConfirmation() {
+      this.snackbar = false;
+      this.$router.push("/products");
     },
   },
 };
