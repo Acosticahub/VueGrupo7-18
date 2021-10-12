@@ -1,9 +1,7 @@
 <template>
   <v-main>
     <header-app />
-
     <div>
-      <h1>Lista de Productos</h1>
       <v-btn
         class="mx-2"
         dark
@@ -19,6 +17,7 @@
         <v-icon dark>mdi-tag-plus</v-icon>
       </v-btn>
       <v-container>
+        <h1>Lista de Productos</h1>
         <v-row>
           <v-col v-for="product in products" :key="product.reference">
             <CatalogProducto :product="product" :active="active" />

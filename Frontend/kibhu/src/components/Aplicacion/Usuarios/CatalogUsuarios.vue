@@ -32,7 +32,7 @@
               </v-btn>
             </v-col>
             <v-col>
-              <v-btn tile class="btn bg-warning">
+              <v-btn tile class="btn btn1">
                 <v-icon @click="eliminar()"> mdi-account-remove </v-icon>
               </v-btn>
             </v-col>
@@ -68,5 +68,8 @@ export default {
 .btn {
   border-radius: 10px;
   display: inline-flex !important;
+}
+.btn1 {
+  background-color: #daa520 !important;
 }
 </style>

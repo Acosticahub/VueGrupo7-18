@@ -21,7 +21,7 @@
               </v-btn>
             </v-col>
             <v-col>
-              <v-btn tile class="btn bg-warning iconn">
+              <v-btn tile class="btn btn1">
                 <v-icon @click="eliminar()"> mdi-delete </v-icon>
               </v-btn>
             </v-col>
@@ -71,7 +71,7 @@ export default {
   border-radius: 10px;
   display: inline-flex !important;
 }
-.iconn {
-  background-color: #daa520;
+.btn1 {
+  background-color: #daa520 !important;
 }
 </style>
