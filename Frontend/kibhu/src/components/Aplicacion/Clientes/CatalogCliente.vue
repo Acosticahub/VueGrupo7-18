@@ -30,12 +30,12 @@
                 tile
                 dark
                 :to="'/clientes/' + client.identification"
-                ><v-icon left> mdi-account-edit </v-icon>
+                ><v-icon> mdi-account-edit </v-icon>
               </v-btn>
             </v-col>
             <v-col>
               <v-btn tile class="btn bg-warning">
-                <v-icon left @click="eliminar()"> mdi-account-remove </v-icon>
+                <v-icon @click="eliminar()"> mdi-account-remove </v-icon>
               </v-btn>
             </v-col>
           </v-row>

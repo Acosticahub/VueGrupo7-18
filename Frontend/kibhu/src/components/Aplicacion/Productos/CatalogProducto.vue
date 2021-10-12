@@ -9,13 +9,23 @@
 
         <v-card-subtitle>Stock {{ product.stock }}</v-card-subtitle>
 
-        <v-card-actions class="btn">
-          <v-btn tile color="success" class="btn">
-            <v-icon> mdi-account-edit </v-icon>
-          </v-btn>
-          <v-btn tile color="red" dark class="btn">
-            <v-icon> mdi-account-remove </v-icon>
-          </v-btn>
+        <v-card-actions>
+          <v-row>
+            <v-col>
+              <v-btn
+                class="btn"
+                tile
+                dark
+                :to="'/productos/' + product.reference"
+                ><v-icon> mdi-pencil </v-icon>
+              </v-btn>
+            </v-col>
+            <v-col>
+              <v-btn tile class="btn bg-warning iconn">
+                <v-icon @click="eliminar()"> mdi-delete </v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card-actions>
       </v-card>
     </div>
@@ -31,6 +41,18 @@ export default {
   data: () => ({
     reveal: false,
   }),
+  methods: {
+    editar() {
+      this.$router.push(`/productos/${this.product.reference}`);
+    },
+    eliminar() {
+      deleteClient(this.product.reference)
+        .then(() => {
+          window.location.reload();
+        })
+        .catch((err) => console.error(err.response.data.message));
+    },
+  },
 };
 </script>
 
@@ -38,8 +60,18 @@ export default {
 .cards {
   background: #fff !important;
 }
+.row {
+  margin: 0;
+}
+.col {
+  padding: 10px 5px 10px;
+  flex-grow: 0;
+}
 .btn {
-  border-radius: 20px;
-  margin-bottom: 4%;
+  border-radius: 10px;
+  display: inline-flex !important;
+}
+.iconn {
+  background-color: #daa520;
 }
 </style>
