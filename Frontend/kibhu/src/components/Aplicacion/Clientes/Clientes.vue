@@ -1,63 +1,62 @@
 <template>
-    <v-main>
-        <header-app />
+  <v-main>
+    <header-app />
     <div>
-        <h1>Clientes de KIBHU</h1>
-        <v-btn 
+      <v-btn
         class="mx-2"
         dark
         large
         color="#dAA520"
-        elevation="2" 
-        bottom right fixed fab to="/clientes/new">
-            <v-icon dark>mdi-account-plus</v-icon>
-        </v-btn>
-        <v-text-field label="Buscar">
-            <v-icon slot="append" color="red"> mdi-magnify </v-icon>
-        </v-text-field>
-        <v-container>
-            <v-row>
-                <v-col
-                    v-for="client in clients"
-                    :key="client.identification"
-                    lg="3"
-                    md="4"
-                    sm="6"
-                    xs="12"
-            >
-                    <v-card>
-                        <CatalogCliente :client="client" :active="active" />
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-container>
+        elevation="2"
+        bottom
+        right
+        fixed
+        fab
+        to="/clientes/new"
+      >
+        <v-icon dark>mdi-account-plus</v-icon>
+      </v-btn>
+      <v-container>
+        <h1>Clientes de KIBHU</h1>
+        <v-row>
+          <v-col
+            v-for="client in clients"
+            :key="client.identification"
+            lg="4"
+            md="6"
+            sm="6"
+            xs="12"
+          >
+            <CatalogCliente :client="client" :active="active" />
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
-</v-main>
+  </v-main>
 </template>
 
 <script>
-import { getAllClients } from "../../../controllers/Client.controller"
-import CatalogCliente from '../../Aplicacion/Clientes/CatalogCliente.vue';
-import HeaderApp from '../HeaderApp.vue';
+import { getAllClients } from "../../../controllers/Client.controller";
+import CatalogCliente from "../../Aplicacion/Clientes/CatalogCliente.vue";
+import HeaderApp from "../HeaderApp.vue";
 export default {
-components: {
+  components: {
     CatalogCliente,
     HeaderApp,
-},
-data() {
+  },
+  data() {
     return {
-    clients: [],
-    active: true
+      clients: [],
+      active: true,
     };
-},
-mounted() {
+  },
+  mounted() {
     getAllClients()
-    .then((response) => {
+      .then((response) => {
         this.clients = response.data;
-    } )
-    .catch((err) => console.error(err));
-},
-
+      })
+      .catch((err) => console.error(err));
+  },
 };
 </script>
 
