@@ -5,17 +5,17 @@
     <h1> {{ isNew ? "New" : "Edit"}} Cliente </h1>
     <v-container class="container">
         <v-row>
-          <v-col cols="12" sm="6">
-                <v-text-field
-                    label="Nombre del cliente"
-                    :rules="nameRules"
-                    hide-details="auto"
-                    v-model="firstname"
-                    outlined
-                    shaped
-                    >
-                    <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
-                </v-text-field>
+          <v-col class= "d-flex" cols="12" sm="6">
+              <v-text-field
+                  label="Nombre del cliente"
+                  :rules="nameRules"
+                  hide-details="auto"
+                  v-model="firstname"
+                  outlined
+                  shaped
+                  >
+                  <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
+              </v-text-field>
             </v-col>
 
           <v-col cols="12" sm="6">
@@ -30,21 +30,19 @@
                     <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
                 </v-text-field>
             </v-col>
-
-
             <v-col
             cols="12"
             sm="6"
             >
-                <v-select
-                    :items="items"
-                    filled
-                    label="Tipo de Identificación"
-                    dense
-                    v-model="typeid"
-                    >
-                    <v-icon slot="prepend" color="#dAA520"> mdi-smart-card </v-icon>
-                </v-select>
+              <v-select
+                :items="items"
+                filled
+                label="Tipo de Identificación"
+                dense
+                v-model="typeid"
+                >
+                <v-icon slot="prepend" color="#dAA520"> mdi-smart-card </v-icon>
+              </v-select>
                     
             </v-col>
 
@@ -110,6 +108,7 @@ import HeaderApp from '../HeaderApp.vue';
 import { 
     getClient,
     createClient,
+    updateClient,
     } from "../../../controllers/Client.controller"
 export default {
   components: { HeaderApp },
@@ -121,6 +120,7 @@ export default {
     contact: 0,
     mail: "",
     typeid: "",
+    select: null,
     items: ['CC', 'TI', 'Pasaporte', 'NIP'],
     snackbar: false,
     snackbarText: "",
@@ -179,6 +179,32 @@ methods: {
         .catch((err)  => console.error(err));
     
     },
+    actualizar()  {
+      if (
+        this.identification == undefined ||
+        this.identification == "" ||
+        this.firstname == undefined ||
+        this.firstname == "" ||  
+        this. lastname == undefined ||
+        this.lastname == "" 
+      ) {
+        this.openErrorDialog("Ingrese los campos obligatorios");
+        return;
+      } 
+      const client = {
+        identification: this.identification,
+        contact : this.contact,
+        firstname : this.firstname,
+        lastname : this.lastname,
+        mail : this.mail,
+        typeid : this.typeid,
+      };
+      updateClient(this.identification, client)
+        .then (()  =>  {
+          this.openSuccesDialog("Se ha actualizado el cliente: "  + this.firstname  + this.lastname);
+        })
+        .catch(()   =>  this.openErrorDialog("Ha ocurrido un error al actualizar el producto"));
+      },
     openSuccesDialog(mensaje) {
         this.snackbarText = mensaje;
         this.snackbar = true;
@@ -189,7 +215,7 @@ methods: {
     },
     closeConfirmation() {
         this.snackbar = false;
-        this.$router.push("/clients");
+        this.$router.push("/Clientes");
     },
   },
 };
