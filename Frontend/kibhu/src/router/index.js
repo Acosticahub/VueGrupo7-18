@@ -78,11 +78,22 @@ const routes = [
       import("../components/Aplicacion/Proveedores/Proveedores.vue"),
   },
   {
-    path: "/newproveedores",
+    path: "/proveedores/new",
     name: "NewProveedores",
     component: () =>
       import("../components/Aplicacion/Proveedores/NewProveedores.vue"),
   },
+
+
+  {
+    path: "/proveedores/:ruc",
+    name: "Edit Suplier",
+    component: () =>
+      import("../components/Aplicacion/Proveedores/NewProveedores.vue"),
+  },
+
+
+
 ];
 
 const router = new VueRouter({

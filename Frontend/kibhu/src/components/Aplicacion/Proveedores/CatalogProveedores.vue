@@ -4,21 +4,21 @@
     <div>
       <v-card class="mx-auto" max-width="400">
         <v-card-title
-          >Proveedor # {{ supplier.id }} {{ supplier.name }}</v-card-title
+          >{{ suplier.name }} </v-card-title
         >
         <v-card-text class="pb-0">
           <table>
             <tr>
-              <td><v-card-subtitle>RUC: </v-card-subtitle></td>
-              <td>{{ supplier.ruc }}</td>
+              <td><v-card-subtitle>ID: </v-card-subtitle></td>
+              <td>{{ suplier.ruc }}</td>
             </tr>
             <tr>
               <td><v-card-subtitle>Contact: </v-card-subtitle></td>
-              <td>{{ supplier.contacto }}</td>
+              <td>{{ suplier.contact }}</td>
             </tr>
             <tr>
               <td><v-card-subtitle>E-mail: </v-card-subtitle></td>
-              <td>{{ supplier.email }}</td>
+              <td>{{ suplier.mail }}</td>
             </tr>
           </table>
         </v-card-text>
@@ -29,7 +29,7 @@
                 class="btn"
                 tile
                 dark
-                :to="'/clientes/' + client.identification"
+                :to="'/proveedores/' + suplier.ruc"
                 ><v-icon> mdi-account-edit </v-icon>
               </v-btn>
             </v-col>
@@ -47,13 +47,25 @@
 
 <script>
 import HeaderApp from "../HeaderApp.vue";
-
+import { deleteSuplier } from "../../../controllers/Suplier.controller";
 export default {
   components: { HeaderApp },
-  props: ["supplier", "active"],
+  props: ["suplier", "active"],
   data: () => ({
     reveal: false,
   }),
+  methods: {
+    editar() {
+      this.$router.push(`/proveedores/${this.suplier.ruc}`);
+    },
+    eliminar() {
+      deleteSuplier(this.suplier.ruc)
+        .then(() => {
+          window.location.reload();
+        })
+        .catch((err) => console.error(err.response.data.message));
+    },
+  },
 };
 </script>
 
