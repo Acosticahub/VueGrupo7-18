@@ -9,6 +9,14 @@ module.exports = class ClientApi {
             res.status(404).json({ message: err.message});
         }
     }
+    static async getSorted(req, res) {
+        try {
+        const clients = await clientModel.find({}).sort({date: -1}).limit(5);
+        res.status(200).json(clients);
+        } catch (err) {
+        res.status(404).json({message: err.message});
+        }
+    }
     static async getByCode(req, res) {
         try {
             const identification = req.params.identification;

@@ -8,6 +8,8 @@ const router = express.Router();
 // Client Routes
 router.get("/clients", clientController.getAll);
 
+router.get("/sortedclients", clientController.getSorted);
+
 router.get("/clients/:identification", clientController.getByCode);
 
 router.post("/clients", clientController.create);

@@ -77,68 +77,106 @@
           </v-row>
         </v-card>
       </v-container>
+
+        <v-text> ÚLTIMOS CLIENTES </v-text>
+      <v-container class="my-5">
+        <v-card
+          flat
+          tile
+          class="px-3"
+          v-for="client in clients"
+          :key="client.identification"
+        >
+          <v-row row wrap>
+            <v-col xs="5">
+              <div>{{ client.firstname }}</div>
+            </v-col>
+            <v-col xs="2">
+              <div>{{ client.lastname }}</div>
+            </v-col>
+            <v-col xs="2">
+              <v-icon slot="prepend" color="#dAA520"> mdi-cellphone </v-icon>
+              <div>{{ client.contact }}</div>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-container>
+
+
     </v-row>
   </v-container>
 </template>
 
 <script>
+
+import { sortedClients } from "../../controllers/Client.controller";
 export default {
   name: "HelloWorld",
 
-  data: () => ({
-    value: [423.956, 446.548, 675.325, 510.615, 590.258, 610.954, 760.985],
-    proyects: [
-      {
-        id: "05",
-        nombre: "Cuaderno Cuadriculado",
-        stock: "500",
-        pricein: "12000",
-        priceout: "15000",
-      },
-      {
-        id: "08",
-        nombre: "Marcador Permanente",
-        stock: "280",
-        pricein: "500",
-        priceout: "800",
-      },
-      {
-        id: "07",
-        nombre: "Block de hojas",
-        stock: "100",
-        pricein: "1800",
-        priceout: "3000",
-      },
-      {
-        id: "10",
-        nombre: "Caja de Clips",
-        stock: "300",
-        pricein: "800",
-        priceout: "1500",
-      },
-      {
-        id: "45",
-        nombre: "Tijeras",
-        stock: "85",
-        pricein: "1000",
-        priceout: "1800",
-      },
-      {
-        id: "25",
-        nombre: "Borrador Tablero",
-        stock: "160",
-        pricein: "700",
-        priceout: "1200",
-      },
-      {
-        id: "16",
-        nombre: "Block Cartulina",
-        stock: "69",
-        pricein: "2000",
-        priceout: "3500",
-      }
-    ],
-  }),
+  data () {
+    return {
+      clients: [],
+      value: [423.956, 446.548, 675.325, 510.615, 590.258, 610.954, 760.985],
+      proyects: [
+        {
+          id:"05",
+          nombre: "Cuaderno cuadriculado",
+          stock: "500",
+          pricein: "12000",
+          priceout: "15000",
+        },
+        {
+          id:"08",
+          nombre: "marcador permanente",
+          stock: "280",
+          pricein: "500",
+          priceout: "800",
+        },
+        {
+          id:"07",
+          nombre: "block de hojas ",
+          stock: "100",
+          pricein: "1800",
+          priceout: "3000",
+        },
+        {
+          id:"10",
+          nombre: "caja de clips",
+          stock: "300",
+          pricein: "800",
+          priceout: "1500",
+        },
+        {
+          id:"45",
+          nombre: " tijeras",
+          stock: "85",
+          pricein: "1000",
+          priceout: "1800",
+        },
+        {
+          id:"25",
+          nombre: "Borrador tablero",
+          stock: "160",
+          pricein: "700",
+          priceout: "1200",
+        },
+        {
+          id:"16",
+          nombre: "Block cartulina",
+          stock: "69",
+          pricein: "2000",
+          priceout: "3500",
+        }
+      ]
+    };
+  },
+  mounted () {
+    sortedClients()
+      .then((response)   => {
+        this.clients = response.data;
+      })
+      .catch((err)  =>  console.error(err));
+  },
 };
 
 </script>
