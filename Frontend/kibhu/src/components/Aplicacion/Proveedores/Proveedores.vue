@@ -12,7 +12,7 @@
         right
         fixed
         fab
-        to="/NewProveedores"
+        to="/proveedores/new"
       >
         <v-icon dark>mdi-account-plus</v-icon>
       </v-btn>
@@ -20,14 +20,14 @@
         <h1>Proveedores de KIBHU</h1>
         <v-row>
           <v-col
-            v-for="supplier in suppliers"
-            :key="supplier.id"
+            v-for="suplier in supliers"
+            :key="suplier.ruc"
             lg="4"
             md="6"
             sm="6"
             xs="12"
           >
-            <CatalogProveedores :supplier="supplier" :active="active" />
+            <CatalogProveedores :suplier="suplier" :active="active" />
           </v-col>
         </v-row>
       </v-container>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { getAllSupliers } from "../../../controllers/Suplier.controller";
 import CatalogProveedores from "../../Aplicacion/Proveedores/CatalogProveedores.vue";
 import HeaderApp from "../HeaderApp.vue";
 export default {
@@ -45,15 +46,16 @@ export default {
   },
   data() {
     return {
-      suppliers: [],
+      supliers: [],
       active: true,
     };
   },
   mounted() {
-    let proveedores = localStorage.suppliers;
-    if (proveedores !== undefined && proveedores !== "") {
-      this.suppliers = JSON.parse(proveedores);
-    }
+    getAllSupliers()
+      .then((response) => {
+        this.supliers = response.data;
+      })
+      .catch((err) => console.error(err));
   },
 };
 </script>
