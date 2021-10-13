@@ -34,7 +34,7 @@
 
 <script>
 import HeaderApp from "../HeaderApp.vue";
-
+import { deleteProduct } from "../../../controllers/Product.controller";
 export default {
   components: { HeaderApp },
   props: ["product", "active"],
@@ -46,7 +46,7 @@ export default {
       this.$router.push(`/productos/${this.product.reference}`);
     },
     eliminar() {
-      deleteClient(this.product.reference)
+      deleteProduct(this.product.reference)
         .then(() => {
           window.location.reload();
         })

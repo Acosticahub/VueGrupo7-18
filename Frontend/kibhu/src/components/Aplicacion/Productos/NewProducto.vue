@@ -2,16 +2,16 @@
   <v-main>
     <header-app />
     <div>
-      <h1>{{ isNew ? "Agregar un Nuevo" : "Editar" }} Producto</h1>
-      <br />
       <v-container class="container">
+        <h1>{{ isNew ? "Agregar un Nuevo" : "Editar" }} Producto</h1>
+        <br />
         <v-row>
           <v-col cols="12" sm="6">
             <v-text-field
               label="Referencia:"
               type="number"
               hide-details="auto"
-              v-model="stock"
+              v-model="reference"
               :rules="numberRules"
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-numeric </v-icon>
@@ -118,6 +118,7 @@
           </v-btn>
         </template>
       </v-snackbar>
+      <br /><br /><br /><br />
     </div>
   </v-main>
 </template>
@@ -127,6 +128,7 @@ import HeaderApp from "../HeaderApp.vue";
 import {
   getProduct,
   createProduct,
+  updateProduct,
 } from "../../../controllers/Product.controller";
 export default {
   components: { HeaderApp },
@@ -138,17 +140,7 @@ export default {
       stock: "",
       pricein: "",
       priceout: "",
-      category: [
-        "Cuadernos",
-        "Lapiceros y lápiz",
-        "Plastilina",
-        "Papeles",
-        "Cartulinas",
-        "Foami",
-        "Vinilos",
-        "Pinceles",
-        "Tijeras",
-      ],
+      category: "",
       img: "",
       snackbar: false,
       snackbarText: "",
@@ -186,7 +178,6 @@ export default {
     guardar() {
       const product = {
         reference: this.reference,
-        reference: this.reference,
         name: this.name,
         description: this.description,
         stock: this.stock,
@@ -201,6 +192,41 @@ export default {
         })
         .catch((err) => console.error(err));
     },
+    actualizar() {
+      if (
+        this.reference == undefined ||
+        this.reference == "" ||
+        this.name == undefined ||
+        this.name == "" ||
+        this.stock == undefined ||
+        this.stock == ""
+      ) {
+        this.openErrorDialog("Ingrese los campos obligatorios");
+        return;
+      }
+      const product = {
+        reference: this.reference,
+        name: this.name,
+        description: this.description,
+        stock: this.stock,
+        pricein: this.pricein,
+        priceout: this.priceout,
+        category: this.category,
+        img: this.img,
+      };
+      updateProduct(this.reference, product)
+        .then(() => {
+          this.openSuccesDialog(
+            "Se ha actualizado el producto: " +
+              this.name +
+              " con Referencia:" +
+              this.reference
+          );
+        })
+        .catch(() =>
+          this.openErrorDialog("Ha ocurrido un error al actualizar el producto")
+        );
+    },
     openSuccesDialog(mensaje) {
       this.snackbarText = mensaje;
       this.snackbar = true;
@@ -211,7 +237,7 @@ export default {
     },
     closeConfirmation() {
       this.snackbar = false;
-      this.$router.push("/products");
+      this.$router.push("/productos");
     },
   },
 };

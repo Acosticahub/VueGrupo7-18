@@ -12,7 +12,7 @@
         right
         fixed
         fab
-        to="/NewProducto"
+        to="/productos/new"
       >
         <v-icon dark>mdi-tag-plus</v-icon>
       </v-btn>
