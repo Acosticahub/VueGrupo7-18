@@ -39,6 +39,7 @@ const productShema = mongoose.Schema({
       "Vinilos",
       "Pinceles",
       "Tijeras",
+      "Cartucheras",
     ],
   },
   img: {
