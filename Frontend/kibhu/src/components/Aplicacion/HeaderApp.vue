@@ -14,42 +14,11 @@
       ></v-img>
       <v-spacer></v-spacer>
 
-      <!-- <div class="text-center">
-    <v-menu offset-y>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="grey"
-          class="text--darken-2"
-          depressed
-          v-bind="attrs"
-          v-on="on"
-        ><v-icon left>mdi-chevron-down</v-icon>
-          Menu
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item
-          v-for="(item, index) in items"
-          :key="index"
-        >
-          <v-list-item-title>{{ item.text }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-  </div>-->
 
-      <div class="dropdown">
-        <button class="dropbtn">
-          Menu <v-icon left>mdi-chevron-down</v-icon>
+        <button class="dropbtn" href="../../views/Appkibhu.vue">
+          Inicio <v-icon left>mdi-home-analytics</v-icon>
         </button>
-        <div class="dropdown-content">
-          <a style="black" href="/Appkibhu">Inicio</a>
-          <a href="/productos">Productos</a>
-          <a href="/usuarios">Usuarios</a>
-          <a href="/Clientes">Clientes</a>
-          <a href="/Proveedores">Proveedores</a>
-        </div>
-      </div>
+        
 
       <v-btn class="sign" flat link href="../../">
         <span>Salir </span>
@@ -95,13 +64,10 @@ export default {
       drawer: false,
 
       links: [
-        {
-          icon: "mdi-view-dashboard",
-          text: " Configuración de Usuario",
-          route: "",
-        },
-        { icon: "mdi-folder-settings", text: " Recursos", route: "./Proyects" },
-        { icon: "mdi-account-tie", text: " Equipo", route: "./Usuarios" },
+        { icon: "mdi-view-dashboard", text: "Productos",   route: "/productos", },
+        { icon: "mdi-folder-settings", text: "Clientes", route: "/clientes" },
+        { icon: "mdi-account-tie", text: "Usuarios", route: "/usuarios" },
+        { icon: "mdi-account-tie", text: "Proveedores", route: "/proveedores" },
       ],
       items: [
         { icon: "mdi-account-tie", text: "Inicio", route: "./" },
@@ -136,19 +102,9 @@ export default {
   bottom: 15px;
   left: 50px;
 }
-.dropbtn {
-  background-color: #e6e6e6;
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+
+
 
 .dropdown-content {
   display: none;
