@@ -6,7 +6,7 @@ const getAllClients = () => httpClient.get(END_POINT1);
 
 const sortedClients = () => httpClient.get("/api/sortedclients");
 
-const counter = () => httpClient.get("/api/countedclients");
+const countedClients = () => httpClient.get("/api/countedclients");
 
 const getClient = (identification) => httpClient.get(END_POINT1+"/"+identification);
 
@@ -17,6 +17,7 @@ const updateClient = (identification, client) => httpClient.put(END_POINT1+"/"+i
 const deleteClient = (identification) => httpClient.delete(END_POINT1+"/"+identification);
 export {
     getAllClients,
+    countedClients,
     sortedClients,
     getClient,
     createClient,

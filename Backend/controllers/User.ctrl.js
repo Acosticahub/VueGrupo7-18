@@ -11,8 +11,8 @@ module.exports = class UserApi {
     }
     static async count(req, res) {
         try {
-            const count = await userModel.estimatedDocumentCount()
-            res.status(200).json({message: count}); 
+            const countuser = await userModel.estimatedDocumentCount()
+            res.status(200).json({message: countuser}); 
         } catch (err) {
             res.status(404).json({ message: err.message});
         }

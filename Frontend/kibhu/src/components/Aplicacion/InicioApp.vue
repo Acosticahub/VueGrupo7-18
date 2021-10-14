@@ -56,7 +56,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Clientes
                   </div>
-                  <v-p class="bold"> 6 </v-p>
+                  <v-p class="bold"> {{countclient}} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-clipboard-list fa-2x text-warning"></i>
@@ -201,12 +201,20 @@
 </template>
 
 <script>
-import { sortedClients } from "../../controllers/Client.controller";
+import { 
+  sortedClients,
+  countedClients
+} from "../../controllers/Client.controller";
+
+//import {countedProducts} from "../../controllers/Product.controller";
+
+
 export default {
   name: "HelloWorld",
 
   data() {
     return {
+      countclient: [],
       clients: [],
       value: [423.956, 446.548, 675.325, 510.615, 590.258, 610.954, 760.985],
       proyects: [
@@ -268,6 +276,11 @@ export default {
         this.clients = response.data;
       })
       .catch((err) => console.error(err));
+    countedClients()
+      .then((response)  => {
+        this.countclient = response.data;
+      })
+      .catch((err)   => console.error(err));
   },
 };
 </script>
