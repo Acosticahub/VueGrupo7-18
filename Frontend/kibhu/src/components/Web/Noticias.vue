@@ -1,7 +1,9 @@
 <template>
   <div class="bloque" id="Noticias">
     <br />
-    <center><h1><b>Noticias sobre Kibhu</b></h1></center>
+    <center>
+      <h1><b>Noticias sobre Kibhu</b></h1>
+    </center>
     <br />
     <v-carousel hide-delimiters height="600px" :show-arrows="false">
       <v-carousel-item>
@@ -38,8 +40,8 @@
 
             <v-card-text class="text--primary">
               <div>
-                Ahora puedes gestionar tu inventario actualizado desde la
-                movilidad y comodidad de su telefono movil
+                Muy pronto podrás gestionar tu inventario actualizado desde la
+                movilidad y comodidad de su telefono movil.
               </div>
               <br />
             </v-card-text>
@@ -69,7 +71,8 @@
           </v-card>
         </v-row>
       </v-carousel-item>
-    </v-carousel><hr>
+    </v-carousel>
+    <hr />
   </div>
 </template>
 
