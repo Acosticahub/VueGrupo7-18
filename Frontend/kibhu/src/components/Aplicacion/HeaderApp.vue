@@ -14,18 +14,11 @@
       ></v-img>
       <v-spacer></v-spacer>
 
-      <div class="dropdown">
-        <button class="dropbtn">
-          Menu <v-icon left>mdi-chevron-down</v-icon>
+
+        <button class="dropbtn" href="../../views/Appkibhu.vue">
+          Inicio <v-icon left>mdi-home-analytics</v-icon>
         </button>
-        <div class="dropdown-content">
-          <a style="black" href="/Appkibhu">Inicio</a>
-          <a href="/productos">Productos</a>
-          <a href="/usuarios">Usuarios</a>
-          <a href="/Clientes">Clientes</a>
-          <a href="/Proveedores">Proveedores</a>
-        </div>
-      </div>
+        
 
       <v-btn class="sign" flat link href="../../">
         <span>Salir </span>
@@ -109,19 +102,9 @@ export default {
   bottom: 15px;
   left: 50px;
 }
-.dropbtn {
-  background-color: #e6e6e6;
-  color: black;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+
+
 
 .dropdown-content {
   display: none;
