@@ -14,30 +14,6 @@
       ></v-img>
       <v-spacer></v-spacer>
 
-      <!-- <div class="text-center">
-    <v-menu offset-y>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="grey"
-          class="text--darken-2"
-          depressed
-          v-bind="attrs"
-          v-on="on"
-        ><v-icon left>mdi-chevron-down</v-icon>
-          Menu
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item
-          v-for="(item, index) in items"
-          :key="index"
-        >
-          <v-list-item-title>{{ item.text }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-  </div>-->
-
       <div class="dropdown">
         <button class="dropbtn">
           Menu <v-icon left>mdi-chevron-down</v-icon>
@@ -95,13 +71,10 @@ export default {
       drawer: false,
 
       links: [
-        {
-          icon: "mdi-view-dashboard",
-          text: " Configuración de Usuario",
-          route: "",
-        },
-        { icon: "mdi-folder-settings", text: " Recursos", route: "./Proyects" },
-        { icon: "mdi-account-tie", text: " Equipo", route: "./Usuarios" },
+        { icon: "mdi-view-dashboard", text: "Productos",   route: "/productos", },
+        { icon: "mdi-folder-settings", text: "Clientes", route: "/clientes" },
+        { icon: "mdi-account-tie", text: "Usuarios", route: "/usuarios" },
+        { icon: "mdi-account-tie", text: "Proveedores", route: "/proveedores" },
       ],
       items: [
         { icon: "mdi-account-tie", text: "Inicio", route: "./" },
