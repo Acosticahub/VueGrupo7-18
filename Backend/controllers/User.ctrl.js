@@ -12,7 +12,7 @@ module.exports = class UserApi {
     static async count(req, res) {
         try {
             const countuser = await userModel.estimatedDocumentCount()
-            res.status(200).json({message: countuser}); 
+            res.status(200).json(countuser); 
         } catch (err) {
             res.status(404).json({ message: err.message});
         }

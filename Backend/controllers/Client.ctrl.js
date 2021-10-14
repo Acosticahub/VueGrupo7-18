@@ -12,7 +12,7 @@ module.exports = class ClientApi {
     static async count(req, res) {
         try {
             const countclient = await clientModel.estimatedDocumentCount()
-            res.status(200).json({message: countclient}); 
+            res.status(200).json(countclient); 
         } catch (err) {
             res.status(404).json({ message: err.message});
         }

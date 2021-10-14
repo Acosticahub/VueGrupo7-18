@@ -12,7 +12,7 @@ module.exports = class SuplierApi {
     static async count(req, res) {
         try {
             const countsuplier = await suplierModel.estimatedDocumentCount()
-            res.status(200).json({message: countsuplier}); 
+            res.status(200).json(countsuplier); 
         } catch (err) {
             res.status(404).json({ message: err.message});
         }

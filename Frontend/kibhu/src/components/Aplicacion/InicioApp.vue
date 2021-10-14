@@ -13,7 +13,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Inventario
                   </div>
-                  <v-p class="bold"> 8 </v-p>
+                  <v-p class="bold"> {{countproduct}} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-warning"></i>
@@ -35,7 +35,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Usuarios
                   </div>
-                  <v-p class="bold"> 7 </v-p>
+                  <v-p class="bold"> {{countuser}} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-user fa-2x text-warning"></i>
@@ -77,7 +77,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Proveedores
                   </div>
-                  <v-p class="bold"> 5 </v-p>
+                  <v-p class="bold"> {{countsuplier}} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-comments fa-2x text-warning"></i>
@@ -206,7 +206,14 @@ import {
   countedClients
 } from "../../controllers/Client.controller";
 
-//import {countedProducts} from "../../controllers/Product.controller";
+import {countedProducts} from "../../controllers/Product.controller";
+
+import {countedSupliers} from "../../controllers/Suplier.controller";
+
+import {countedUsers} from "../../controllers/User.controller";
+
+
+
 
 
 export default {
@@ -215,6 +222,9 @@ export default {
   data() {
     return {
       countclient: [],
+      countproduct: [],
+      countuser: [],
+      countsuplier: [],
       clients: [],
       value: [423.956, 446.548, 675.325, 510.615, 590.258, 610.954, 760.985],
       proyects: [
@@ -279,6 +289,21 @@ export default {
     countedClients()
       .then((response)  => {
         this.countclient = response.data;
+      })
+      .catch((err)   => console.error(err));
+    countedProducts()
+      .then((response)  => {
+        this.countproduct = response.data;
+      })
+      .catch((err)   => console.error(err));
+    countedUsers()
+      .then((response)  => {
+        this.countuser = response.data;
+      })
+      .catch((err)   => console.error(err));
+    countedSupliers()
+      .then((response)  => {
+        this.countsuplier = response.data;
       })
       .catch((err)   => console.error(err));
   },

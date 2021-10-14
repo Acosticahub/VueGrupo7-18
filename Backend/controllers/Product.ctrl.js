@@ -12,7 +12,7 @@ module.exports = class ProductApi {
   static async count(req, res) {
     try {
         const countproduct = await productModel.estimatedDocumentCount()
-        res.status(200).json({message: countproduct}); 
+        res.status(200).json(countproduct); 
     } catch (err) {
         res.status(404).json({ message: err.message});
     }
