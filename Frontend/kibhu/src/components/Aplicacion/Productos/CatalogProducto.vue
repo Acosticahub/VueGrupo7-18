@@ -2,7 +2,7 @@
   <v-main>
     <header-app />
     <div>
-      <v-card class="mx-auto cards" max-width="344">
+      <v-card class="mx-auto cards" width="360">
         <v-img height="200px" :src="product.img"></v-img>
 
         <v-card-title>{{ product.name }}</v-card-title>

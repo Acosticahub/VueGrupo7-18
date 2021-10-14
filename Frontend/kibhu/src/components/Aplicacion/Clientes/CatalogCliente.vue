@@ -2,7 +2,7 @@
   <v-main>
     <header-app />
     <div>
-      <v-card class="mx-auto" width="344">
+      <v-card class="mx-auto" width="360">
         <v-card-title
           >{{ client.firstname }} {{ client.lastname }}</v-card-title
         >
