@@ -15,9 +15,9 @@
       <v-spacer></v-spacer>
 
 
-        <button class="dropbtn" href="../../views/Appkibhu.vue">
-          Inicio <v-icon left>mdi-home-analytics</v-icon>
-        </button>
+      <v-btn class="sign" depressed style="black" href="/Appkibhu">Inicio 
+      <v-icon rigth>mdi-home-analytics</v-icon></v-btn>
+      
         
 
       <v-btn class="sign" flat link href="../../">
