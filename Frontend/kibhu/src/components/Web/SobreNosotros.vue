@@ -1,7 +1,9 @@
 <template>
   <div class="bloque" id="SobreNosotros">
-    <br>
-    <center><h1><b>Sobre Nosotros</b></h1></center>
+    <br />
+    <center>
+      <h1><b>Sobre Nosotros</b></h1>
+    </center>
     <br />
     <p>
       Somos un Equipo de Desarrollo estructurado con las bases de la Metodología
@@ -33,8 +35,11 @@
             </v-card-text>
 
             <v-card-actions link>
-              <div class="btn" href="mailto:acostabuitrago0123@gmail.com">
-                <button>Contacto</button>
+              <div class="btn">
+                <a
+                  href="https://api.whatsapp.com/send?phone=573184464480&text=Mucho%20gusto,%20estoy%20interesado%20en%20tus%20servicios."
+                  ><button>Contacto</button></a
+                >
               </div>
             </v-card-actions>
           </v-card>
@@ -57,7 +62,10 @@
 
             <v-card-actions>
               <div class="btn">
-                <button>Contacto</button>
+                <a
+                  href="https://api.whatsapp.com/send?phone=573227918303&text=Mucho%20gusto,%20estoy%20interesado%20en%20tus%20servicios."
+                  ><button>Contacto</button></a
+                >
               </div>
             </v-card-actions>
           </v-card>
@@ -80,7 +88,10 @@
 
             <v-card-actions>
               <div class="btn">
-                <button>Contacto</button>
+                <a
+                  href="https://api.whatsapp.com/send?phone=573183913217&text=Mucho%20gusto,%20estoy%20interesado%20en%20tus%20servicios."
+                  ><button>Contacto</button></a
+                >
               </div>
             </v-card-actions>
           </v-card>
@@ -108,7 +119,10 @@
 
             <v-card-actions>
               <div class="btn">
-                <button>Contacto</button>
+                <a
+                  href="https://api.whatsapp.com/send?phone=573173136296&text=Mucho%20gusto,%20estoy%20interesado%20en%20tus%20servicios."
+                  ><button>Contacto</button></a
+                >
               </div>
             </v-card-actions>
           </v-card>
@@ -131,13 +145,17 @@
 
             <v-card-actions>
               <div class="btn">
-                <button>Contacto</button>
+                <a
+                  href="https://api.whatsapp.com/send?phone=573208390012&text=Mucho%20gusto,%20estoy%20interesado%20en%20tus%20servicios."
+                  ><button>Contacto</button></a
+                >
               </div>
             </v-card-actions>
           </v-card>
         </v-row>
-      </v-carousel-item>
-    </v-carousel><br><hr>
+      </v-carousel-item> </v-carousel
+    ><br />
+    <hr />
   </div>
 </template>
 
