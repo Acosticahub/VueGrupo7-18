@@ -13,7 +13,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Inventario
                   </div>
-                  <v-p class="bold"> {{countproduct}} </v-p>
+                  <v-p class="bold"> {{ countproduct }} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-warning"></i>
@@ -35,7 +35,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Usuarios
                   </div>
-                  <v-p class="bold"> {{countuser}} </v-p>
+                  <v-p class="bold"> {{ countuser }} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-user fa-2x text-warning"></i>
@@ -56,7 +56,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Clientes
                   </div>
-                  <v-p class="bold"> {{countclient}} </v-p>
+                  <v-p class="bold"> {{ countclient }} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-clipboard-list fa-2x text-warning"></i>
@@ -77,7 +77,7 @@
                   <div class="text-xs font-weight-bold text-uppercase mb-1">
                     Proveedores
                   </div>
-                  <v-p class="bold"> {{countsuplier}} </v-p>
+                  <v-p class="bold"> {{ countsuplier }} </v-p>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-comments fa-2x text-warning"></i>
@@ -140,81 +140,47 @@
         </v-p>
       </v-col>
     </v-row>
-    <!-- Datos -->
-    <v-container class="my-5">
-      <v-card
-        flat
-        tile
-        class="px-3"
-        v-for="project in proyects"
-        :key="project.title"
-      >
-        <v-row row wrap>
-          <v-col cols="1" md="1">
-            <div class="caption grey--text">Id</div>
-            <div>{{ proyects.id }}</div>
-          </v-col>
-          <v-col xs="5">
-            <div class="caption grey--text">Nombre</div>
-            <div>{{ proyects.nombre }}</div>
-          </v-col>
-          <v-col xs="2">
-            <div class="caption grey--text">Stock</div>
-            <div>{{ proyects.stock }}</div>
-          </v-col>
-          <v-col xs="2">
-            <div class="caption grey--text">Precio Entrada</div>
-            <div>{{ proyects.pricein }}</div>
-          </v-col>
-          <v-col xs="2">
-            <div class="caption grey--text">Precio Salida</div>
-            <div>{{ proyects.priceout }}</div>
-          </v-col>
-        </v-row>
-      </v-card>
-    </v-container>
+    <br /><br /><br />
     <!-- Tabla de los últimos clientes -->
-    <v-text> ÚLTIMOS CLIENTES </v-text>
-    <v-container class="my-5">
-      <v-card
-        flat
-        tile
-        class="px-3"
-        v-for="client in clients"
-        :key="client.identification"
-      >
-        <v-row row wrap>
-          <v-col xs="5">
-            <div>{{ client.firstname }}</div>
-          </v-col>
-          <v-col xs="2">
-            <div>{{ client.lastname }}</div>
-          </v-col>
-          <v-col xs="2">
-            <v-icon slot="prepend" color="#dAA520"> mdi-cellphone </v-icon>
-            <div>{{ client.contact }}</div>
-          </v-col>
-        </v-row>
-      </v-card>
-    </v-container>
+    <h1 style="color: #daa520; text-align: center">Clientes más Recientes</h1>
+    <br />
+    <div class="table-responsive">
+      <table class="table table-hover table-striped table-bordered table-sm">
+        <thead>
+          <tr class="text-center thead-dark">
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Contacto</th>
+          </tr>
+        </thead>
+        <tbody v-for="client in clients" :key="client.identification">
+          <tr>
+            <td style="width: 200px">{{ client.identification }}</td>
+            <td>{{ client.firstname }}</td>
+            <td>{{ client.lastname }}</td>
+            <td>
+              {{ client.contact }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br /><br />
   </v-container>
 </template>
 
 <script>
-import { 
+import {
   sortedClients,
-  countedClients
+  countedClients,
 } from "../../controllers/Client.controller";
 
-import {countedProducts} from "../../controllers/Product.controller";
+import { countedProducts } from "../../controllers/Product.controller";
 
-import {countedSupliers} from "../../controllers/Suplier.controller";
+import { countedSupliers } from "../../controllers/Suplier.controller";
 
-import {countedUsers} from "../../controllers/User.controller";
-
-
-
-
+import { countedUsers } from "../../controllers/User.controller";
 
 export default {
   name: "HelloWorld",
@@ -227,57 +193,6 @@ export default {
       countsuplier: [],
       clients: [],
       value: [423.956, 446.548, 675.325, 510.615, 590.258, 610.954, 760.985],
-      proyects: [
-        {
-          id: "05",
-          nombre: "Cuaderno cuadriculado",
-          stock: "500",
-          pricein: "12000",
-          priceout: "15000",
-        },
-        {
-          id: "08",
-          nombre: "marcador permanente",
-          stock: "280",
-          pricein: "500",
-          priceout: "800",
-        },
-        {
-          id: "07",
-          nombre: "block de hojas ",
-          stock: "100",
-          pricein: "1800",
-          priceout: "3000",
-        },
-        {
-          id: "10",
-          nombre: "caja de clips",
-          stock: "300",
-          pricein: "800",
-          priceout: "1500",
-        },
-        {
-          id: "45",
-          nombre: " tijeras",
-          stock: "85",
-          pricein: "1000",
-          priceout: "1800",
-        },
-        {
-          id: "25",
-          nombre: "Borrador tablero",
-          stock: "160",
-          pricein: "700",
-          priceout: "1200",
-        },
-        {
-          id: "16",
-          nombre: "Block cartulina",
-          stock: "69",
-          pricein: "2000",
-          priceout: "3500",
-        },
-      ],
     };
   },
   mounted() {
@@ -287,25 +202,25 @@ export default {
       })
       .catch((err) => console.error(err));
     countedClients()
-      .then((response)  => {
+      .then((response) => {
         this.countclient = response.data;
       })
-      .catch((err)   => console.error(err));
+      .catch((err) => console.error(err));
     countedProducts()
-      .then((response)  => {
+      .then((response) => {
         this.countproduct = response.data;
       })
-      .catch((err)   => console.error(err));
+      .catch((err) => console.error(err));
     countedUsers()
-      .then((response)  => {
+      .then((response) => {
         this.countuser = response.data;
       })
-      .catch((err)   => console.error(err));
+      .catch((err) => console.error(err));
     countedSupliers()
-      .then((response)  => {
+      .then((response) => {
         this.countsuplier = response.data;
       })
-      .catch((err)   => console.error(err));
+      .catch((err) => console.error(err));
   },
 };
 </script>
