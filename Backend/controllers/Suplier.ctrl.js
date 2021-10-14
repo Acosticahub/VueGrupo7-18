@@ -9,6 +9,14 @@ module.exports = class SuplierApi {
             res.status(404).json({ message: err.message});
         }
     }
+    static async count(req, res) {
+        try {
+            const count = await suplierModel.estimatedDocumentCount()
+            res.status(200).json({message: count}); 
+        } catch (err) {
+            res.status(404).json({ message: err.message});
+        }
+    }
     static async getByCode(req, res) {
         try {
             const ruc = req.params.ruc;

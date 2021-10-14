@@ -9,6 +9,14 @@ module.exports = class ProductApi {
       res.status(404).json({ message: err.message });
     }
   }
+  static async count(req, res) {
+    try {
+        const count = await productModel.estimatedDocumentCount()
+        res.status(200).json({message: count}); 
+    } catch (err) {
+        res.status(404).json({ message: err.message});
+    }
+}
   static async getByCode(req, res) {
     try {
       const reference = req.params.reference;

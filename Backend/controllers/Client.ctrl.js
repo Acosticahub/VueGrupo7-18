@@ -9,6 +9,14 @@ module.exports = class ClientApi {
             res.status(404).json({ message: err.message});
         }
     }
+    static async count(req, res) {
+        try {
+            const count = await clientModel.estimatedDocumentCount()
+            res.status(200).json({message: count}); 
+        } catch (err) {
+            res.status(404).json({ message: err.message});
+        }
+    }
     static async getSorted(req, res) {
         try {
         const clients = await clientModel.find({}).sort({date: -1}).limit(5);

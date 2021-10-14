@@ -6,6 +6,8 @@ const getAllClients = () => httpClient.get(END_POINT1);
 
 const sortedClients = () => httpClient.get("/api/sortedclients");
 
+const counter = () => httpClient.get("/api/countedclients");
+
 const getClient = (identification) => httpClient.get(END_POINT1+"/"+identification);
 
 const createClient = (client) => httpClient.post(END_POINT1, client);

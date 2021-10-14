@@ -10,6 +10,8 @@ router.get("/clients", clientController.getAll);
 
 router.get("/sortedclients", clientController.getSorted);
 
+router.get("/countedclients", clientController.count);
+
 router.get("/clients/:identification", clientController.getByCode);
 
 router.post("/clients", clientController.create);
@@ -21,6 +23,8 @@ router.delete("/clients/:identification", clientController.delete);
 
 // Product Routes
 router.get("/products", productController.getAll);
+router.get("/countedproducts", productController.count);
+
 router.get("/products/:reference", productController.getByCode);
 router.post("/products", productController.create);
 router.put("/products/:reference", productController.update);
@@ -30,6 +34,9 @@ router.delete("/products/:reference", productController.delete);
 
 // Users Routes
 router.get("/users", userController.getAll);
+
+router.get("/countedusers", userController.count);
+
 
 router.get("/users/:username", userController.getByCode);
 
@@ -42,6 +49,9 @@ router.delete("/users/:username", userController.delete);
 
 // supliers routes
 router.get("/supliers", suplierController.getAll)
+
+router.get("/countedsupliers", suplierController.count);
+
 
 router.get("/supliers/:ruc", suplierController.getByCode)
 
