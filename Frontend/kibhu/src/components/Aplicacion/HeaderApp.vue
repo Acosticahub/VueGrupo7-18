@@ -52,7 +52,7 @@
       </div>
 
       <v-btn class="sign" flat link href="../../">
-        <span>Salir</span>
+        <span>Salir </span>
         <v-icon rigth>mdi-logout</v-icon>
       </v-btn>
     </v-app-bar>
@@ -97,11 +97,11 @@ export default {
       links: [
         {
           icon: "mdi-view-dashboard",
-          text: "Configuración de Usuario",
+          text: " Configuración de Usuario",
           route: "",
         },
-        { icon: "mdi-folder-settings", text: "Recursos", route: "./Proyects" },
-        { icon: "mdi-account-tie", text: "Equipo", route: "./Usuarios" },
+        { icon: "mdi-folder-settings", text: " Recursos", route: "./Proyects" },
+        { icon: "mdi-account-tie", text: " Equipo", route: "./Usuarios" },
       ],
       items: [
         { icon: "mdi-account-tie", text: "Inicio", route: "./" },
