@@ -100,11 +100,19 @@
         </v-row>
       </v-container>
       <br /><br />
-      <div class="botones">
-        <v-btn tile color="#dAA520" @click="guardar()" v-if="isNew">
+      
+      <div class="botones" >
+        <v-btn tile class="rounded-pill" style="margin-right: 10px" dark  color="#E65245" link href="/productos">
+          <v-icon left wh> mdi-close-thick </v-icon>
+          Cancelar
+        </v-btn>
+        
+        <v-btn tile class="rounded-pill" dark color="#dAA520" @click="guardar()" v-if="isNew">
           <v-icon left> mdi-note-check </v-icon>
           Guardar
         </v-btn>
+
+        
         <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
           <v-icon left> mdi-account-check </v-icon>
           Actualizar
@@ -255,5 +263,17 @@ input {
 }
 .v-input__prepend-outer {
   margin-left: 30px;
+}
+
+.botones{
+  text-decoration: none !important;
+  padding-right: 100px;
+  padding-top: 80px;
+  float: right;
+  
+}
+
+a:hover{
+  text-decoration: none;
 }
 </style>

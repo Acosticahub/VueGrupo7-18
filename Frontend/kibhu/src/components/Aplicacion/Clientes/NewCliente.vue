@@ -74,10 +74,21 @@
           </v-col>
         </v-row>
       </v-container>
-      <div class="botones">
-        <v-btn tile color="#dAA520" @click="guardar()" v-if="isNew">
+      
+      <div class="botones" >
+        <v-btn tile class="rounded-pill "  dark  color="#dAA520" @click="guardar()" v-if="isNew">
           <v-icon left> mdi-account-check </v-icon>
           Guardar
+        </v-btn>
+        <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
+          <v-icon left> mdi-account-check </v-icon>
+          Actualizar
+        </v-btn>
+      </div>
+      <div class="botones" >
+        <v-btn tile class="rounded-pill " dark  color="#E65245" link href="/clientes">
+          <v-icon left wh> mdi-close-thick </v-icon>
+          Cancelar
         </v-btn>
         <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
           <v-icon left> mdi-account-check </v-icon>
@@ -211,9 +222,6 @@ export default {
 
 <style>
 
-.botones {
-  float: right;
-}
 h1 {
   letter-spacing: 3px;
   text-align: center;
@@ -228,5 +236,16 @@ input {
 }
 .v-input__prepend-outer {
   margin-left: 30px;
+}
+
+.botones{
+    text-decoration: none !important;
+  padding-right: 100px;
+  padding-top: 80px;
+  float: right;
+}
+
+a:hover{
+  text-decoration: none;
 }
 </style>

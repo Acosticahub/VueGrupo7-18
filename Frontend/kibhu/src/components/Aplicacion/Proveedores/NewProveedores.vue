@@ -56,7 +56,11 @@
         </v-row>
       </v-container>
       <div class="botones">
-        <v-btn tile color="#dAA520" @click="guardar()" v-if="isNew">
+        <v-btn tile class="rounded-pill" style="margin-right: 10px" dark  color="#E65245" link href="/proveedores">
+          <v-icon left wh> mdi-close-thick </v-icon>
+          Cancelar
+        </v-btn>
+        <v-btn tile dark class="rounded-pill" color="#dAA520" @click="guardar()" v-if="isNew">
           <v-icon left> mdi-account-check </v-icon>
           Guardar
         </v-btn>
@@ -185,8 +189,16 @@ export default {
 
 <style>
 
-.botones {
+.botones{
+  text-decoration: none !important;
+  padding-right: 100px;
+  padding-top: 80px;
   float: right;
+  
+}
+
+a:hover{
+  text-decoration: none;
 }
 h1 {
   letter-spacing: 3px;
