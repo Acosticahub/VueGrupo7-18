@@ -19,14 +19,7 @@
       <v-container>
         <h1>Usuarios de KIBHU</h1>
         <v-row>
-          <v-col
-            v-for="user in users"
-            :key="user.username"
-            lg="4"
-            md="6"
-            sm="6"
-            xs="12"
-          >
+          <v-col v-for="user in users" :key="user.username">
             <CatalogUsuarios :user="user" :active="active" />
           </v-col>
         </v-row>

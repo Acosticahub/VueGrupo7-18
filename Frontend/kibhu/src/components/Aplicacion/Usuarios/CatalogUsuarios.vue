@@ -2,7 +2,7 @@
   <v-main>
     <header-app />
     <div>
-      <v-card class="mx-auto" max-width="400">
+      <v-card class="mx-auto" width="360">
         <v-card-title>{{ user.name.first }}</v-card-title>
         <v-card-text class="pb-0">
           <table>

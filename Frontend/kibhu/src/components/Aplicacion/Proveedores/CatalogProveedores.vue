@@ -2,10 +2,8 @@
   <v-main>
     <header-app />
     <div>
-      <v-card class="mx-auto" max-width="400">
-        <v-card-title
-          >{{ suplier.name }} </v-card-title
-        >
+      <v-card class="mx-auto" width="360">
+        <v-card-title>{{ suplier.name }} </v-card-title>
         <v-card-text class="pb-0">
           <table>
             <tr>
@@ -25,11 +23,7 @@
         <v-card-actions>
           <v-row>
             <v-col>
-              <v-btn
-                class="btn"
-                tile
-                dark
-                :to="'/proveedores/' + suplier.ruc"
+              <v-btn class="btn" tile dark :to="'/proveedores/' + suplier.ruc"
                 ><v-icon> mdi-account-edit </v-icon>
               </v-btn>
             </v-col>

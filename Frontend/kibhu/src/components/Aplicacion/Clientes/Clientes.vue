@@ -18,18 +18,13 @@
       </v-btn>
       <v-container>
         <h1>Clientes de KIBHU</h1>
-        <v-row>
-          <v-col
-            v-for="client in clients"
-            :key="client.identification"
-            lg="4"
-            md="6"
-            sm="6"
-            xs="12"
-          >
-            <CatalogCliente :client="client" :active="active" />
-          </v-col>
-        </v-row>
+        <center>
+          <v-row>
+            <v-col v-for="client in clients" :key="client.identification">
+              <CatalogCliente :client="client" :active="active" />
+            </v-col>
+          </v-row>
+        </center>
       </v-container>
     </div>
   </v-main>
