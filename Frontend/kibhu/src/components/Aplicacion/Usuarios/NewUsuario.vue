@@ -230,7 +230,7 @@ export default {
       this.snackbarText = mensaje;
       this.snackbarText = true;
     },
-    openErrorDialog() {
+    openErrorDialog(mensaje) {
       this.snackbarText = mensaje;
       this.snackbarText = true;
     },

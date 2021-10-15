@@ -34,7 +34,7 @@
 <script>
 import { deleteProduct } from "../../../controllers/Product.controller";
 export default {
-  components: { HeaderApp },
+  
   props: ["product", "active"],
   data: () => ({
     reveal: false,

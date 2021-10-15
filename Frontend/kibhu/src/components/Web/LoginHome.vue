@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-import validateUser from "../../controllers/User.controller.js";
+//import validateUser from "../../controllers/User.controller.js";
 export default {
   data() {
     return {
@@ -46,7 +46,7 @@ export default {
       error: "",
     };
   },
-  methods: {
+  /*methods: {
     login() {
       validateUser(this.username, this.password)
         .then((response) => {
@@ -63,7 +63,7 @@ export default {
           }, 3000);
         });
     },
-  },
+  },*/
 };
 </script>
 
