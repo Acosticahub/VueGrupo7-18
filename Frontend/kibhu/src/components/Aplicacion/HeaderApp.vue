@@ -70,7 +70,7 @@ export default {
       links: [
         { icon: "mdi-view-dashboard", text: "Productos",   route: "/productos", },
         { icon: "mdi-account-multiple", text: "Clientes", route: "/clientes" },
-        { icon: "mdi-account-group", text: "Usuarios", route: "/usuarios" },
+        /*{ icon: "mdi-account-group", text: "Usuarios", route: "/usuarios" },*/
         { icon: "mdi-account-arrow-down", text: "Proveedores", route: "/proveedores" },
       ],
       items: [
