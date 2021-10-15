@@ -266,9 +266,6 @@ a:hover {
   text-decoration: none;
 }
 .v-main {
-  padding: 40px 0px 0px !important;
-}
-.v-main {
   padding: 50px 0px 0px !important;
 }
 h1 {
