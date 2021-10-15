@@ -32,19 +32,19 @@
 </template>
 
 <script>
-import { deleteUser } from "../../../controllers/User.controller";
+import { deleteProduct } from "../../../controllers/Product.controller";
 export default {
   components: { HeaderApp },
-  props: ["user", "active"],
+  props: ["product", "active"],
   data: () => ({
     reveal: false,
   }),
   methods: {
     editar() {
-      this.$router.push(`/usuarios/${this.user.username}`);
+      this.$router.push(`/productos/${this.product.reference}`);
     },
     eliminar() {
-      deleteUser(this.user.username)
+      deleteProduct(this.product.reference)
         .then(() => {
           window.location.reload();
         })
