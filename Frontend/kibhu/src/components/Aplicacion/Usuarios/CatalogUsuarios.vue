@@ -1,9 +1,8 @@
 <template>
   <v-main>
-    
     <div>
       <v-card class="mx-auto" width="360">
-        <v-card-title>{{ user.name.first }}</v-card-title>
+        <v-card-title>{{ user.firstname }}</v-card-title>
         <v-card-text class="pb-0">
           <table>
             <tr>
@@ -23,11 +22,7 @@
         <v-card-actions>
           <v-row>
             <v-col>
-              <v-btn
-                class="btn"
-                tile
-                dark
-                :to="'/usuarios/' + users.identification"
+              <v-btn class="btn" tile dark :to="'/usuarios/' + users.username"
                 ><v-icon> mdi-account-edit </v-icon>
               </v-btn>
             </v-col>
@@ -44,9 +39,7 @@
 </template>
 
 <script>
-
 export default {
-  
   props: ["user", "active"],
   data: () => ({
     reveal: false,

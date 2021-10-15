@@ -266,9 +266,11 @@ a:hover {
   text-decoration: none;
 }
 .v-main {
-  padding: 40px 0px 0px !important;
+  padding: 50px 0px 0px !important;
 }
 h1 {
   text-align: center;
+  font-weight: bold;
+  color: #494949;
 }
 </style>

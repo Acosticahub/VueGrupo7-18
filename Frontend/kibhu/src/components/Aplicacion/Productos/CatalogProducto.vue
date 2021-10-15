@@ -1,6 +1,5 @@
 <template>
   <v-main>
-    
     <div>
       <v-card class="mx-auto cards" width="360">
         <v-img height="200px" :src="product.img"></v-img>
@@ -33,20 +32,19 @@
 </template>
 
 <script>
-
-import { deleteProduct } from "../../../controllers/Product.controller";
+import { deleteUser } from "../../../controllers/User.controller";
 export default {
-  
-  props: ["product", "active"],
+  components: { HeaderApp },
+  props: ["user", "active"],
   data: () => ({
     reveal: false,
   }),
   methods: {
     editar() {
-      this.$router.push(`/productos/${this.product.reference}`);
+      this.$router.push(`/usuarios/${this.user.username}`);
     },
     eliminar() {
-      deleteProduct(this.product.reference)
+      deleteUser(this.user.username)
         .then(() => {
           window.location.reload();
         })

@@ -2,51 +2,75 @@
   <v-main>
     <header-app />
     <div>
-      <h1>Nuevo Usuario</h1>
       <v-container class="container">
+        <h1>{{ isNew ? "Agregar un Nuevo" : "Editar" }} Usuario</h1>
         <v-row>
           <v-col cols="12" sm="6">
             <v-text-field
-              label="Nombre del Usuario:"
+              label="Nombre:"
               :rules="nameRules"
               hide-details="auto"
-              v-model="name"
+              v-model="firstname"
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
             </v-text-field>
           </v-col>
-
+          <v-col cols="12" sm="6">
+            <v-text-field
+              v-model="lastname"
+              hide-details="auto"
+              label="Apellido:"
+            >
+              <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
+            </v-text-field>
+          </v-col>
           <v-col cols="12" sm="6">
             <v-text-field
               label="Identificación del Usuario:"
               hide-details="auto"
-              v-model="cedula"
+              v-model="identification"
               type="number"
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-smart-card </v-icon>
             </v-text-field>
           </v-col>
-
           <v-col cols="12" sm="6">
             <v-text-field
               label="Número de contacto:"
               type="number"
               hide-details="auto"
-              v-model="contacto"
+              v-model="contact"
               :rules="numberRules"
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-cellphone </v-icon>
             </v-text-field>
           </v-col>
-
           <v-col cols="12" sm="6">
             <v-text-field
-              v-model="email"
+              v-model="mail"
               :rules="mailRules"
               hide-details="auto"
               label="Correo de contacto:"
             >
               <v-icon slot="prepend" color="#dAA520"> mdi-email </v-icon>
+            </v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-text-field
+              v-model="username"
+              hide-details="auto"
+              label="Nickname"
+            >
+              <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
+            </v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6">
+            <v-text-field
+              v-model="password"
+              hide-details="auto"
+              label="Contraseña:"
+            >
+              <v-icon slot="prepend" color="#dAA520"> mdi-lock </v-icon>
             </v-text-field>
           </v-col>
         </v-row>
@@ -67,28 +91,59 @@
         <v-btn
           tile
           class="rounded-pill"
-          color="#dAA520"
           dark
+          color="#dAA520"
           @click="guardar()"
+          v-if="isNew"
         >
-          <v-icon left> mdi-account-check </v-icon>
+          <v-icon left> mdi-note-check </v-icon>
           Guardar
         </v-btn>
+        <v-btn
+          tile
+          dark
+          class="rounded-pill"
+          color="#dAA520"
+          @click="actualizar()"
+          v-if="!isNew"
+        >
+          <v-icon left> mdi-account-check </v-icon>
+          Actualizar
+        </v-btn>
       </div>
+      <v-snackbar v-model="snackbar">
+        {{ snackbarText }}
+        <template v-slot:action="{ attrs }">
+          <v-btn color="blue" text v-bind="attrs" @click="closeConfirmation()">
+            Cerrar
+          </v-btn>
+        </template>
+      </v-snackbar>
     </div>
   </v-main>
 </template>
 
 <script>
+import {
+  getUser,
+  createUser,
+  updateUser,
+} from "../../../controllers/User.controller";
 import HeaderApp from "../HeaderApp.vue";
 export default {
   components: { HeaderApp },
   data() {
     return {
-      name: "",
-      cedula: "",
-      contacto: "",
-      email: "",
+      firstname: "",
+      lastname: "",
+      identification: 0,
+      contact: 0,
+      mail: "",
+      username: "",
+      password: "",
+      snackbar: false,
+      snackbarText: "",
+      isNew: true,
       nameRules: [
         (value) => !!value || "Required.",
         (value) => (value && value.length >= 3) || "Min 3 characters",
@@ -105,48 +160,83 @@ export default {
       numberRules: [(value) => !!value || "Required."],
     };
   },
-  mounted() {
-    console.log("idUser:", localStorage.idUser);
-    console.log("users:", localStorage.users);
+  created() {
+    const username = this.$route.params.username;
+    if (username != undefined) {
+      getUser(username)
+        .then((response) => {
+          const user = response.data;
+          this.username = user.username;
+          this.firstname = user.firstname;
+          this.lastname = user.lastname;
+          this.contact = user.contact;
+          this.mail = user.mail;
+          this.password = user.password;
+          this.identification = user.identification;
+          this.isNew = false;
+        })
+        .catch((err) => console.error(err));
+    }
   },
   methods: {
     guardar() {
-      console.log("Guardar");
-      // Validar campos obligatorios
-      if (this.name === "") {
-        alert("El nombre es un campo obligatorio");
+      const user = {
+        username: this.username,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        contact: this.contact,
+        mail: this.mail,
+        password: this.password,
+        identification: this.identification,
+      };
+      createUser(user)
+        .then(() => {
+          this.openSuccesDialog("Guardado correctamente");
+        })
+        .catch((err) => console.error(err));
+    },
+    actualizar() {
+      if (
+        this.username == undefined ||
+        this.username == "" ||
+        this.firstname == undefined ||
+        this.firstname == "" ||
+        this.lastname == undefined ||
+        this.lastname == ""
+      ) {
+        this.openErrorDialog("Ingrese los campos obligatorios");
         return;
       }
-      //Agregar producto al localstorage
-      let id = localStorage.idUser;
-      if (id === undefined || id == "") {
-        id = 1;
-      } else {
-        id = parseInt(id) + 1;
-      }
-      const usuario = {
-        id: id,
-        name: this.name,
-        cedula: this.cedula,
-        contacto: this.contacto,
-        email: this.email,
+      const user = {
+        username: this.username,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        contact: this.contact,
+        mail: this.mail,
+        password: this.password,
+        identification: this.identification,
       };
-      let usuarios = localStorage.clients;
-      if (usuarios === undefined || usuarios == "") {
-        usuarios = [];
-      } else {
-        usuarios = JSON.parse(usuarios);
-      }
-      console.log("usuarios", usuarios);
-      usuarios.push(usuario);
-      alert("Bienvenido a la familia KIBHU");
-      this.name = "";
-      this.cedula = "";
-      this.contacto = "";
-      this.email = "";
-      localStorage.idUser = id;
-      localStorage.users = JSON.stringify(usuarios);
-      location.href = "/usuarios";
+      updateUser(this.username, user)
+        .then(() => {
+          this.openSuccesDialog(
+            "Se ha actulizado el usuario" + this.firstname + "" + this.lastname
+          );
+        })
+        .catch(() =>
+          this.openErrorDialog("Ha ocurrido un error al actualizar el usuario")
+        );
+    },
+    openSuccesDialog(mensaje) {
+      this.snackbarText = mensaje;
+      this.snackbarText = true;
+    },
+    openErrorDialog() {
+      this.snackbarText = mensaje;
+      this.snackbarText = true;
+    },
+    closeConfirmation() {
+      this.snackbar = false;
+      this.$router.push("/usuarios");
     },
   },
 };
@@ -178,7 +268,12 @@ a:hover {
 .v-main {
   padding: 40px 0px 0px !important;
 }
+.v-main {
+  padding: 50px 0px 0px !important;
+}
 h1 {
   text-align: center;
+  font-weight: bold;
+  color: #494949;
 }
 </style>
