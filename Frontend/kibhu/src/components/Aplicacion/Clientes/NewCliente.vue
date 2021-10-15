@@ -80,17 +80,14 @@
           <v-icon left> mdi-account-check </v-icon>
           Guardar
         </v-btn>
-        <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
-          <v-icon left> mdi-account-check </v-icon>
-          Actualizar
-        </v-btn>
+        
       </div>
       <div class="botones" >
-        <v-btn tile class="rounded-pill " dark  color="#E65245" link href="/clientes">
+        <v-btn tile class="rounded-pill " style="margin-right: 10px" dark  color="#E65245" link href="/clientes">
           <v-icon left wh> mdi-close-thick </v-icon>
           Cancelar
         </v-btn>
-        <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
+        <v-btn tile class="rounded-pill"  color="#dAA520" @click="actualizar()" v-if="!isNew">
           <v-icon left> mdi-account-check </v-icon>
           Actualizar
         </v-btn>
@@ -239,7 +236,7 @@ input {
 }
 
 .botones{
-    text-decoration: none !important;
+  text-decoration: none !important;
   padding-right: 100px;
   padding-top: 80px;
   float: right;

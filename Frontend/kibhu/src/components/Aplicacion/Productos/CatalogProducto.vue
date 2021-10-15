@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <header-app />
+    
     <div>
       <v-card class="mx-auto cards" width="360">
         <v-img height="200px" :src="product.img"></v-img>
@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import HeaderApp from "../HeaderApp.vue";
+
 import { deleteProduct } from "../../../controllers/Product.controller";
 export default {
-  components: { HeaderApp },
+  
   props: ["product", "active"],
   data: () => ({
     reveal: false,

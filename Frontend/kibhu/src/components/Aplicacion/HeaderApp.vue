@@ -69,9 +69,9 @@ export default {
 
       links: [
         { icon: "mdi-view-dashboard", text: "Productos",   route: "/productos", },
-        { icon: "mdi-folder-settings", text: "Clientes", route: "/clientes" },
-        { icon: "mdi-account-tie", text: "Usuarios", route: "/usuarios" },
-        { icon: "mdi-account-tie", text: "Proveedores", route: "/proveedores" },
+        { icon: "mdi-account-multiple", text: "Clientes", route: "/clientes" },
+        { icon: "mdi-account-group", text: "Usuarios", route: "/usuarios" },
+        { icon: "mdi-account-arrow-down", text: "Proveedores", route: "/proveedores" },
       ],
       items: [
         { icon: "mdi-account-tie", text: "Inicio", route: "./" },

@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <header-app />
+    
     <div>
       <v-card class="mx-auto" width="360">
         <v-card-title
@@ -46,10 +46,10 @@
 </template>
 
 <script>
-import HeaderApp from "../HeaderApp.vue";
+
 import { deleteClient } from "../../../controllers/Client.controller";
 export default {
-  components: { HeaderApp },
+  
   props: ["client", "active"],
   data: () => ({
     reveal: false,

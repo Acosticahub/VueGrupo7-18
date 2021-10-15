@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <header-app />
+    
     <div>
       <v-card class="mx-auto" width="360">
         <v-card-title>{{ user.name.first }}</v-card-title>
@@ -44,9 +44,9 @@
 </template>
 
 <script>
-import HeaderApp from "../HeaderApp.vue";
+
 export default {
-  components: { HeaderApp },
+  
   props: ["user", "active"],
   data: () => ({
     reveal: false,

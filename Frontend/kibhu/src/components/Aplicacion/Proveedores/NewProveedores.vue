@@ -64,7 +64,7 @@
           <v-icon left> mdi-account-check </v-icon>
           Guardar
         </v-btn>
-        <v-btn tile color="#dAA520" @click="actualizar()" v-if="!isNew">
+        <v-btn tile dark class="rounded-pill"  color="#dAA520" @click="actualizar()" v-if="!isNew">
           <v-icon left> mdi-account-check </v-icon>
           Actualizar
         </v-btn>

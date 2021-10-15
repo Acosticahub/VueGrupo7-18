@@ -1,6 +1,5 @@
 <template>
   <v-main>
-    <header-app />
     <div>
       <v-card class="mx-auto" width="360">
         <v-card-title>{{ suplier.name }} </v-card-title>
@@ -40,10 +39,10 @@
 </template>
 
 <script>
-import HeaderApp from "../HeaderApp.vue";
+
 import { deleteSuplier } from "../../../controllers/Suplier.controller";
 export default {
-  components: { HeaderApp },
+  
   props: ["suplier", "active"],
   data: () => ({
     reveal: false,
