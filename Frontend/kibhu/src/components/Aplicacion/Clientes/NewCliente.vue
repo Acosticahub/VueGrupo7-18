@@ -2,8 +2,9 @@
   <v-main>
     <header-app />
     <div>
-      <h1>{{ isNew ? "New" : "Edit" }} Cliente</h1>
       <v-container class="container">
+        <h1>{{ isNew ? "Agregar un Nuevo" : "Editar" }} Cliente</h1>
+        <br />
         <v-row>
           <v-col cols="12" sm="6">
             <v-text-field
@@ -74,20 +75,39 @@
           </v-col>
         </v-row>
       </v-container>
-      
-      <div class="botones" >
-        <v-btn tile class="rounded-pill "  dark  color="#dAA520" @click="guardar()" v-if="isNew">
+      <div class="botones">
+        <v-btn
+          tile
+          class="rounded-pill"
+          dark
+          color="#dAA520"
+          @click="guardar()"
+          v-if="isNew"
+        >
           <v-icon left> mdi-account-check </v-icon>
           Guardar
         </v-btn>
-        
       </div>
-      <div class="botones" >
-        <v-btn tile class="rounded-pill " style="margin-right: 10px" dark  color="#E65245" link href="/clientes">
+      <div class="botones">
+        <v-btn
+          tile
+          class="rounded-pill"
+          style="margin-right: 10px"
+          dark
+          color="#E65245"
+          link
+          href="/clientes"
+        >
           <v-icon left wh> mdi-close-thick </v-icon>
           Cancelar
         </v-btn>
-        <v-btn tile class="rounded-pill"  color="#dAA520" @click="actualizar()" v-if="!isNew">
+        <v-btn
+          tile
+          class="rounded-pill"
+          color="#dAA520"
+          @click="actualizar()"
+          v-if="!isNew"
+        >
           <v-icon left> mdi-account-check </v-icon>
           Actualizar
         </v-btn>
@@ -106,39 +126,40 @@
 
 <script>
 import HeaderApp from "../HeaderApp.vue";
-import { 
-    getClient,
-    createClient,
-    updateClient,
-    } from "../../../controllers/Client.controller";
+import {
+  getClient,
+  createClient,
+  updateClient,
+} from "../../../controllers/Client.controller";
 export default {
   components: { HeaderApp },
   data() {
     return {
-    firstname: "",
-    lastname: "",
-    identification: 0,
-    contact: 0,
-    mail: "",
-    typeid: "",
-    select: null,
-    items: ['CC', 'TI', 'Pasaporte', 'NIP'],
-    snackbar: false,
-    snackbarText: "",
-    isNew: true,
-    nameRules: [
-      (value) => !!value || "Required.",
-      (value) => (value && value.length >= 3) || "Min 3 characters", ],
-    mailRules: [
-      (value) => !!value || "Required.",
-      (value) => value.length <= 20 || "Max 20 characters",
-      (value) => {
-        const pattern =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return pattern.test(value) || "Invalid e-mail.";
-      },
-    ],
-    numberRules: [(value) => !!value || "Required."],
+      firstname: "",
+      lastname: "",
+      identification: 0,
+      contact: 0,
+      mail: "",
+      typeid: "",
+      select: null,
+      items: ["CC", "TI", "Pasaporte", "NIP"],
+      snackbar: false,
+      snackbarText: "",
+      isNew: true,
+      nameRules: [
+        (value) => !!value || "Required.",
+        (value) => (value && value.length >= 3) || "Min 3 characters",
+      ],
+      mailRules: [
+        (value) => !!value || "Required.",
+        (value) => value.length <= 20 || "Max 20 characters",
+        (value) => {
+          const pattern =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || "Invalid e-mail.";
+        },
+      ],
+      numberRules: [(value) => !!value || "Required."],
     };
   },
   created() {
@@ -175,32 +196,39 @@ export default {
         })
         .catch((err) => console.error(err));
     },
-    actualizar()  {
+    actualizar() {
       if (
         this.identification == undefined ||
         this.identification == "" ||
         this.firstname == undefined ||
-        this.firstname == "" ||  
-        this. lastname == undefined ||
-        this.lastname == "" 
+        this.firstname == "" ||
+        this.lastname == undefined ||
+        this.lastname == ""
       ) {
         this.openErrorDialog("Ingrese los campos obligatorios");
         return;
-      } 
+      }
       const client = {
         identification: this.identification,
-        contact : this.contact,
-        firstname : this.firstname,
-        lastname : this.lastname,
-        mail : this.mail,
-        typeid : this.typeid,
+        contact: this.contact,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        mail: this.mail,
+        typeid: this.typeid,
       };
       updateClient(this.identification, client)
-        .then (()  =>  {
-          this.openSuccesDialog("Se ha actualizado el cliente: "  + this.firstname + '' + this.lastname);
+        .then(() => {
+          this.openSuccesDialog(
+            "Se ha actualizado el cliente: " +
+              this.firstname +
+              "" +
+              this.lastname
+          );
         })
-        .catch(()   =>  this.openErrorDialog("Ha ocurrido un error al actualizar el producto"));
-      },
+        .catch(() =>
+          this.openErrorDialog("Ha ocurrido un error al actualizar el producto")
+        );
+    },
     openSuccesDialog(mensaje) {
       this.snackbarText = mensaje;
       this.snackbar = true;
@@ -210,20 +238,14 @@ export default {
       this.snackbar = true;
     },
     closeConfirmation() {
-        this.snackbar = false;
-        this.$router.push("/Clientes");
+      this.snackbar = false;
+      this.$router.push("/Clientes");
     },
   },
 };
 </script>
 
 <style>
-
-h1 {
-  letter-spacing: 3px;
-  text-align: center;
-  text-shadow: 2px 2px 4px goldenrod;
-}
 input {
   border-color: rgba(255, 255, 255, 0) !important;
 }
@@ -234,15 +256,19 @@ input {
 .v-input__prepend-outer {
   margin-left: 30px;
 }
-
-.botones{
+.botones {
   text-decoration: none !important;
-  padding-right: 100px;
-  padding-top: 80px;
+  padding-right: 10px;
+  padding-top: 30px;
   float: right;
 }
-
-a:hover{
+a:hover {
   text-decoration: none;
+}
+.v-main {
+  padding: 40px 0px 0px !important;
+}
+h1 {
+  text-align: center;
 }
 </style>

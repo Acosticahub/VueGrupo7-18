@@ -56,4 +56,12 @@ export default {
 </script>
 
 <style>
+.v-main {
+  padding: 50px 0px 0px !important;
+}
+h1 {
+  text-align: center;
+  font-weight: bold;
+  color: #494949;
+}
 </style>

@@ -2,8 +2,9 @@
   <v-main>
     <header-app />
     <div>
-      <h1>{{ isNew ? "New" : "Edit" }} Proveedor</h1>
       <v-container class="container">
+        <h1>{{ isNew ? "Agregar un Nuevo" : "Editar" }} Proveedor</h1>
+        <br />
         <v-row>
           <v-col cols="12" sm="6">
             <v-text-field
@@ -15,10 +16,6 @@
               <v-icon slot="prepend" color="#dAA520"> mdi-account </v-icon>
             </v-text-field>
           </v-col>
-
-          
-
-          
 
           <v-col cols="12" sm="6">
             <v-text-field
@@ -56,15 +53,37 @@
         </v-row>
       </v-container>
       <div class="botones">
-        <v-btn tile class="rounded-pill" style="margin-right: 10px" dark  color="#E65245" link href="/proveedores">
+        <v-btn
+          tile
+          class="rounded-pill"
+          style="margin-right: 10px"
+          dark
+          color="#E65245"
+          link
+          href="/proveedores"
+        >
           <v-icon left wh> mdi-close-thick </v-icon>
           Cancelar
         </v-btn>
-        <v-btn tile dark class="rounded-pill" color="#dAA520" @click="guardar()" v-if="isNew">
+        <v-btn
+          tile
+          dark
+          class="rounded-pill"
+          color="#dAA520"
+          @click="guardar()"
+          v-if="isNew"
+        >
           <v-icon left> mdi-account-check </v-icon>
           Guardar
         </v-btn>
-        <v-btn tile dark class="rounded-pill"  color="#dAA520" @click="actualizar()" v-if="!isNew">
+        <v-btn
+          tile
+          dark
+          class="rounded-pill"
+          color="#dAA520"
+          @click="actualizar()"
+          v-if="!isNew"
+        >
           <v-icon left> mdi-account-check </v-icon>
           Actualizar
         </v-btn>
@@ -83,36 +102,37 @@
 
 <script>
 import HeaderApp from "../HeaderApp.vue";
-import { 
-    getSuplier,
-    createSuplier,
-    updateSuplier,
-    } from "../../../controllers/Suplier.controller";
+import {
+  getSuplier,
+  createSuplier,
+  updateSuplier,
+} from "../../../controllers/Suplier.controller";
 export default {
   components: { HeaderApp },
   data() {
     return {
-    name: "",
-    ruc: 0,
-    contact: 0,
-    mail: "",
-    select: null,
-    snackbar: false,
-    snackbarText: "",
-    isNew: true,
-    nameRules: [
-      (value) => !!value || "Required.",
-      (value) => (value && value.length >= 3) || "Min 3 characters", ],
-    mailRules: [
-      (value) => !!value || "Required.",
-      (value) => value.length <= 20 || "Max 20 characters",
-      (value) => {
-        const pattern =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return pattern.test(value) || "Invalid e-mail.";
-      },
-    ],
-    numberRules: [(value) => !!value || "Required."],
+      name: "",
+      ruc: 0,
+      contact: 0,
+      mail: "",
+      select: null,
+      snackbar: false,
+      snackbarText: "",
+      isNew: true,
+      nameRules: [
+        (value) => !!value || "Required.",
+        (value) => (value && value.length >= 3) || "Min 3 characters",
+      ],
+      mailRules: [
+        (value) => !!value || "Required.",
+        (value) => value.length <= 20 || "Max 20 characters",
+        (value) => {
+          const pattern =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || "Invalid e-mail.";
+        },
+      ],
+      numberRules: [(value) => !!value || "Required."],
     };
   },
   created() {
@@ -125,7 +145,6 @@ export default {
           this.name = suplier.name;
           this.contact = suplier.contact;
           this.mail = suplier.mail;
-          
 
           this.isNew = false;
         })
@@ -139,7 +158,6 @@ export default {
         contact: this.contact,
         name: this.name,
         mail: this.mail,
-        
       };
       createSuplier(suplier)
         .then(() => {
@@ -147,30 +165,30 @@ export default {
         })
         .catch((err) => console.error(err));
     },
-    actualizar()  {
+    actualizar() {
       if (
         this.ruc == undefined ||
         this.ruc == "" ||
         this.name == undefined ||
-        this.name == ""   
-         
+        this.name == ""
       ) {
         this.openErrorDialog("Ingrese los campos obligatorios");
         return;
-      } 
+      }
       const suplier = {
         name: this.name,
         ruc: this.ruc,
-        contact : this.contact,
-        mail : this.mail,
-        
+        contact: this.contact,
+        mail: this.mail,
       };
       updateSuplier(this.ruc, suplier)
-        .then (()  =>  {
-          this.openSuccesDialog("Se ha actualizado el proveedor: "  + this.name  );
+        .then(() => {
+          this.openSuccesDialog("Se ha actualizado el proveedor: " + this.name);
         })
-        .catch(()   =>  this.openErrorDialog("Ha ocurrido un error al actualizar el producto"));
-      },
+        .catch(() =>
+          this.openErrorDialog("Ha ocurrido un error al actualizar el producto")
+        );
+    },
     openSuccesDialog(mensaje) {
       this.snackbarText = mensaje;
       this.snackbar = true;
@@ -180,30 +198,22 @@ export default {
       this.snackbar = true;
     },
     closeConfirmation() {
-        this.snackbar = false;
-        this.$router.push("/Proveedores");
+      this.snackbar = false;
+      this.$router.push("/Proveedores");
     },
   },
 };
 </script>
 
 <style>
-
-.botones{
+.botones {
   text-decoration: none !important;
-  padding-right: 100px;
-  padding-top: 80px;
+  padding-right: 10px;
+  padding-top: 30px;
   float: right;
-  
 }
-
-a:hover{
+a:hover {
   text-decoration: none;
-}
-h1 {
-  letter-spacing: 3px;
-  text-align: center;
-  text-shadow: 2px 2px 4px goldenrod;
 }
 input {
   border-color: rgba(255, 255, 255, 0) !important;
@@ -214,5 +224,11 @@ input {
 }
 .v-input__prepend-outer {
   margin-left: 30px;
+}
+.v-main {
+  padding: 40px 0px 0px !important;
+}
+h1 {
+  text-align: center;
 }
 </style>
