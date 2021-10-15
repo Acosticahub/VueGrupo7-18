@@ -122,7 +122,7 @@
           <v-divider></v-divider>
 
           <v-card-actions class="justify-center">
-            <v-btn block text> Ir al Reporte </v-btn>
+            <v-btn block text link href="/productos"> Ir al Reporte </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>

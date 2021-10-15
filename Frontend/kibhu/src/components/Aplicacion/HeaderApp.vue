@@ -34,8 +34,9 @@
         </v-col>
       </v-row>
       <v-btn class="btnadmin"> Administrador </v-btn>
-      <p class="text-center white--text font-weight-medium">Hernán Pérez</p>
-      <v-list dense nav>
+      <p dark class="text-center font-weight-medium">Cesar Augusto Diaz </p>
+      <v-list dense nav dark class="menudrop">
+        
         <v-list-item
           class="white--text"
           v-for="link in links"
@@ -43,7 +44,8 @@
           route
           :to="link.route"
         >
-          <v-list-item-action>
+        
+          <v-list-item-action  >
             <v-icon class="white--text"> {{ link.icon }} </v-icon>
           </v-list-item-action>
           <v-list-item-content>
@@ -52,7 +54,9 @@
             </v-list-item-item>
           </v-list-item-content>
         </v-list-item>
+        
       </v-list>
+      
     </v-navigation-drawer>
   </nav>
 </template>
@@ -103,7 +107,9 @@ export default {
   left: 50px;
 }
 
-
+a:hover{
+  text-decoration: none !important;
+}
 
 
 .dropdown-content {
