@@ -5,7 +5,6 @@ const express = require('express');
 const cors = require('cors'); //habilitar la conexión desde cualquier fuente
 
 
-
 const app = express();
 app.use(cors());
 app.use(express.json());
